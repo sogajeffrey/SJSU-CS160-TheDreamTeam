@@ -1,6 +1,11 @@
 SJSU-CS160-TheDreamTeam
 =======================
 
-abcd
+We will build our RacQual utility using this GITHUB folder. 
+Team Members: 
 
-aasdadasdads
+Jay Patel
+Jeffrey Su
+Srikanth Narhari
+Subha Rangnathan
+Eric Tam
