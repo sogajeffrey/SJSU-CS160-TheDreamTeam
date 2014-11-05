@@ -90,7 +90,7 @@ $(document).ready(function(){
     <form method="post" action="#">
       <div class="row uniform half collapse-at-2">
         <div class="6u">
-          <input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text">
+          <input id="name" name="name" placeholder="First and Last Name" required="" tabindex="1" type="text">
         </div>
         <div class="6u">
           <input id="username" name="username" placeholder="Username" required="" tabindex="2" type="text">
@@ -109,32 +109,12 @@ $(document).ready(function(){
           <input type="password" id="repassword" name="repassword" required="" placeholder="Verify Your Password">
         </div>
       </div>
-      <div class="row uniform half collapse-at-2">
-      <div class="6u">
-        <input type="text" name="length" placeholder="Video Length" />
+      <div class="row uniform half collapse-at-3">
+      <div class = "2u">
+      <label> Birthday: </label>
       </div>
-      <div class="6u">
-        <select name="HighRes">
-          <option>Highest Resolution</option>
-          <option>144</option>
-          <option>240</option>
-          <option>360</option>
-          <option>480</option>
-          <option>760</option>
-          <option>1080</option>
-        </select>
-      </div>
-      <div class="row uniform">
-        <div class="12u">
-          <ul class="actions align-center">
-            <input class="buttom" name="submit" id="submit" tabindex="5" value="Submit" type="submit">
-          </ul>
-        </div>
-      </div>
-      <fieldset>
-        <label>Birthday</label>
-        <label class="month">
-          <select class="select-style" name="BirthMonth">
+      <div class="3u">
+          <select name="BirthMonth">
           <option value="">Month</option>
           <option  value="01">January</option>
           <option value="02">February</option>
@@ -148,28 +128,25 @@ $(document).ready(function(){
           <option value="10">October</option>
           <option value="11">November</option>
           <option value="12" >December</option>
-        </label>
         </select>
-        <label>Day
-          <input class="birthday" maxlength="2" name="BirthDay"  placeholder="Day" required="">
-        </label>
-        <label>Year
-          <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" required="">
-        </label>
-      </fieldset>
-      <select class="select-style gender" name="gender">
-        <option value="select">i am..</option>
-        <option value="m">Male</option>
-        <option value="f">Female</option>
-        <option value="others">Other</option>
-      </select>
-      <br>
-      <br>
-      <p class="contact">
-        <label for="phone">Mobile phone</label>
-      </p>
+      </div>
+      <div class="3u">
+        <input type="password" maxlength="2" name="BirthDay"  placeholder="Day" required="">
+      </div>
+      <div class ="3u">
+      <input type="password" maxlength="4" name="BirthYear" placeholder="Year" required="">
+      </div>
+      </div>
+     
       <input id="phone" name="phone" placeholder="phone number" required="" type="text">
-      <br>
+
+      <div class="row uniform">
+        <div class="12u">
+          <ul class="actions align-center">
+            <input class="buttom" name="submit" id="submit" tabindex="5" value="Submit" type="submit">
+          </ul>
+        </div>
+      </div>
     </form>
   </div>
 </section>
