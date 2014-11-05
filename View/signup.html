@@ -90,16 +90,20 @@ $(document).ready(function(){
     <form method="post" action="#">
       <div class="row uniform half collapse-at-2">
         <div class="6u">
-          <input id="name" name="name" placeholder="First and Last Name" required="" tabindex="1" type="text">
+          <input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text">
         </div>
+         <div class="6u">
+          <input id="name" name="name" placeholder="Last Name" required="" tabindex="1" type="text">
+        </div>
+      </div>
+      <div class="row uniform half collapse-at-2">
         <div class="6u">
           <input id="username" name="username" placeholder="Username" required="" tabindex="2" type="text">
         </div>
-      </div>
-      <div class="row uniform half">
-        <div class="12u">
-          <input type="email" name="email" id="email" value="" placeholder="Email" />
+        <div class="6u">
+          <input type="email" name="email" id="email" value="" placeholder="Email Address" />
         </div>
+        
       </div>
       <div class="row uniform half collapse-at-2">
         <div class="6u">
@@ -110,36 +114,32 @@ $(document).ready(function(){
         </div>
       </div>
       <div class="row uniform half collapse-at-3">
-      <div class = "2u">
+      <div class = "1u">
       <label> Birthday: </label>
       </div>
-      <div class="3u">
-          <select name="BirthMonth">
-          <option value="">Month</option>
-          <option  value="01">January</option>
-          <option value="02">February</option>
-          <option value="03" >March</option>
-          <option value="04">April</option>
-          <option value="05">May</option>
-          <option value="06">June</option>
-          <option value="07">July</option>
-          <option value="08">August</option>
-          <option value="09">September</option>
-          <option value="10">October</option>
-          <option value="11">November</option>
-          <option value="12" >December</option>
-        </select>
+      
+      <div class="4u">
+        <input type="password" name="Month"  placeholder="Month" required="">
+
       </div>
       <div class="3u">
         <input type="password" maxlength="2" name="BirthDay"  placeholder="Day" required="">
       </div>
-      <div class ="3u">
+      <div class ="4u">
       <input type="password" maxlength="4" name="BirthYear" placeholder="Year" required="">
       </div>
       </div>
-     
-      <input id="phone" name="phone" placeholder="phone number" required="" type="text">
-
+     <div class="row uniform half collapse-at-3">
+     <div class="4u">
+      <input id="phone" name="phone" placeholder="Phone Number" required="" type="text">
+      </div>
+      <div class ="4u">
+      <input type="password" name="city" placeholder="City" required="">
+      </div>
+      <div class ="4u">
+      <input type="password" name="state" placeholder="State" required="">
+      </div>
+	</div>
       <div class="row uniform">
         <div class="12u">
           <ul class="actions align-center">
