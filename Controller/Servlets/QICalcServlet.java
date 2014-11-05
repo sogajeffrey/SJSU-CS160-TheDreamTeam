@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.RacquetBean;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
 This class does the under-the-hood work for the quality index calculator JSP.
@@ -8,7 +10,7 @@ This class does the under-the-hood work for the quality index calculator JSP.
 @author Srikanth
 @version 2014/11/5
 */
-public class QICalcServlet {
+public class QICalcServlet extends HttpServlet {
     /**
     Calculates the quality index of a racquet.
         Q = MR^2/I
