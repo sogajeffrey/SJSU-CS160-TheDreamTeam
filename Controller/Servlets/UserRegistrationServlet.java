@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
 This is the servlet for creating a user account.
-@author Srikanth
+@author Jay Patel & Srikanth
 */
 @WebServlet(urlPatterns = {"/RegisterUser"})
 public class UserRegistrationServlet extends HttpServlet
@@ -41,16 +41,34 @@ public class UserRegistrationServlet extends HttpServlet
         Connection conn;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dreamteam", "root", "secret123");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dreamteam", "root", "");
             
             String sql = "INSERT INTO userinfo(username, password, firstName, lastName, email, phoneNumber, city, state, rating)"
-                       + "VALUES('+username+','+password+','+firstName+','+lastName+','+email+','+phoneNumber+','+city+','+state+','+rating+')";
+                       + "VALUES(?,?,?,?,?,?,?,?,?)";
             
             PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            stmt.setString(1, "userName");
+            stmt.setString(2, "password");
+            stmt.setString(3, "firstName");
+            stmt.setString(4, "lastName");
+            stmt.setString(5, "email");
+            stmt.setString(6, "phoneNumber");
+            stmt.setString(7, "city");
+            stmt.setString(8, "state");
+            stmt.setDouble(10, 0);
+
             int i = stmt.executeUpdate();
+            
+            if(i != 0) {
+                response.sendRedirect("index.html");
+            } else {
+                response.sendRedirect("signup.html");
+            }
+            
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
+        } 
     }
 
     /**
