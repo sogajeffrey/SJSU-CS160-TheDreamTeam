@@ -30,24 +30,38 @@ public class AddRacket extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Get Parameters from the form. 
-        String modelName = request.getParameter("mName");
-        String brand = request.getParameter("brand");
-        double mass = Double.parseDouble(request.getParameter("mass"));
-        double length = Double.parseDouble(request.getParameter("length"));
-        int swingWeight = Integer.parseInt(request.getParameter("swingWeight"));
-        double balancePoint = Double.parseDouble(request.getParameter("balancePoint"));
-        double qualityIndex = Double.parseDouble(request.getParameter("qualityIndex"));
+        String mName = "Another value";//request.getParameter("mName");
+        String brand = "jay test #2";//request.getParameter("brand");
+        double mass = 0.5;//Double.parseDouble(request.getParameter("mass"));
+        double length = 68.88;//Double.parseDouble(request.getParameter("length"));
+        int swingWeight = 300;//Integer.parseInt(request.getParameter("swingWeight"));
+        double balancePoint = 31.0;//Double.parseDouble(request.getParameter("balancePoint"));
+        double qualityIndex = 1.03;//Double.parseDouble(request.getParameter("qualityIndex"));
         
         Connection conn;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dreamteam", "root", "secret123");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dreamteam", "root", "");
             
             String sql = "INSERT INTO racquetinfo(modelName, brand, mass, length, swingweight, balancePoint, qualityIndex)"
-                       + "VALUES('+modelName+','+brand+','+mass+','+length+','+swingWeight+','+balancePoint+','+qualityIndex+')";
+                       + "VALUES(?,?,?,?,?,?,?)";
             
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1,mName);
+            stmt.setString(2,brand);
+            stmt.setDouble(3,mass);
+            stmt.setDouble(4,length);
+            stmt.setInt(5, swingWeight);
+            stmt.setDouble(6,balancePoint);
+            stmt.setDouble(7,qualityIndex);
+            
             int i = stmt.executeUpdate();
+                        
+            if(i > 0) {
+                response.sendRedirect("AllGood.jsp");
+            } else {
+                response.sendRedirect("BadInsert.jsp");
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
