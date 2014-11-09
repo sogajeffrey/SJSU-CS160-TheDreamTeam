@@ -105,7 +105,7 @@ public class Racquet implements Serializable {
      * Gets a Swing Weight of Racquet.
      * @return Swing Weight of Racquet. 
      */
-    public int getSwingWeight() {
+    public double getSwingWeight() {
         return swingWeight;
     }
     
@@ -113,7 +113,7 @@ public class Racquet implements Serializable {
      * Sets a Swing Weight of Racquet.
      * @param swingWeight swing weight of Racquet. 
      */
-    public void setSwingWeight(int swingWeight) {
+    public void setSwingWeight(double swingWeight) {
         this.swingWeight = swingWeight;
     }
     
