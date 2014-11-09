@@ -39,9 +39,35 @@ public class QICalcServlet extends HttpServlet {
 		+ (BALANCE_POINT /* points */ / PTS_PER_IN)) / CMS_PER_IN;
 	final double I = SWING_WEIGHT;
       
-	final Double Q = M * R * R / I;
+	// This is the quantitative quality index:
+	final double QI = M * R * R / I;
+	
+	// This is the qualitative quality index:
+	final String EVAL;
+	if (Double.compare(QI, MEDIOCRE_THRESHOLD) <= 0)
+	   {
+	   EVAL = "Good";
+	   }
+	else
+	   {
+	   if (Double.compare(QI, BAD_THRESHOLD) <= 0)
+		{
+		EVAL = "MEDIOCRE";
+		}
+	   else
+		{
+		EVAL = "BAD";
+		}
+	   }
 
-	// TODO: write to response
+	// TODO: correctly write QI and EVAL to response
+	final String[] QI_WRAPPER = { "" + QI };
+	final String[] EVAL_WRAPPER = { EVAL };
+
+	request.getParameterMap().put("qualityIndex", QI_WRAPPER);
+	request.getParameterMap().put("evaluation", EVAL_WRAPPER);
+	
+	// lol
    }
    
    private static final double OZS_PER_LB = 16.0;
@@ -49,4 +75,7 @@ public class QICalcServlet extends HttpServlet {
     
    private static final double CMS_PER_IN = 2.54;
    private static final double PTS_PER_IN = 2.2;
+   
+   private static final double MEDIOCRE_THRESHOLD = 1.10;
+   private static final double BAD_THRESHOLD = 1.17;
 }
