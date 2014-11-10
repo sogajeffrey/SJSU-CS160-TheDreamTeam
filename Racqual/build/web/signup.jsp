@@ -90,10 +90,10 @@ $(document).ready(function(){
     <form method="post" action="UserRegistrationServlet">
       <div class="row uniform half collapse-at-2">
         <div class="6u">
-          <input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text">
+          <input id="name" name="firstname" placeholder="First Name" required="" tabindex="1" type="text">
         </div>
          <div class="6u">
-          <input id="name" name="name" placeholder="Last Name" required="" tabindex="1" type="text">
+          <input id="name" name="lastname" placeholder="Last Name" required="" tabindex="1" type="text">
         </div>
       </div>
       <div class="row uniform half collapse-at-2">

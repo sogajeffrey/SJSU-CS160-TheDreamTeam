@@ -31,13 +31,13 @@ public class UserRegistrationServlet extends HttpServlet {
              //Get Parameters from the form. 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
+        String firstName = request.getParameter("firstname");
+        String lastName = request.getParameter("lastname");
         String email = request.getParameter("email");
-        String phoneNumber = request.getParameter("phoneNumber");
+        String phoneNumber = request.getParameter("phone");
         String city = request.getParameter("city");
         String state = request.getParameter("state");
-        double rating = 0.0;//Double.parseDouble(request.getParameter("rating"));
+        final double RATING = 0.0;//Double.parseDouble(request.getParameter("rating"));
             
         Connection conn;
         try {
@@ -57,7 +57,7 @@ public class UserRegistrationServlet extends HttpServlet {
             stmt.setString(6, phoneNumber);
             stmt.setString(7, city);
             stmt.setString(8, state);
-            stmt.setDouble(10, 0);
+            stmt.setDouble(10, RATING);
 
             int i = stmt.executeUpdate();
             
