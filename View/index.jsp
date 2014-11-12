@@ -33,12 +33,12 @@ $(document).ready(function(){
 <div id="header"> 
   
   <!-- Logo -->
-  <h1><a href="index.html" id="logo">RacQual <em>by The Dream Team</em></a></h1>
+  <h1><a href="index.jsp" id="logo">RacQual <em>by The Dream Team</em></a></h1>
   
   <!-- Nav -->
   <nav id="nav">
     <ul>
-      <li class="current"><a href="index.html">Home</a></li>
+      <li class="current"><a href="index.jsp">Home</a></li>
       <li> <a href="">temp</a>
         <ul>
           <li><a href="#">Lorem dolor</a></li>
@@ -76,7 +76,7 @@ $(document).ready(function(){
           </form>
         </div>
       </li>
-      <li id="signup"> <a href="signup.html">Sign up</a> </li>
+      <li id="signup"> <a href="signup.jsp">Sign up</a> </li>
     </ul>
   </nav>
 </div>
