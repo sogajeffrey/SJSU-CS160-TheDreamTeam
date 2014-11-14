@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RacQual by The Dream Team</title>
+<title>RacQual QI Calc</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -38,59 +38,27 @@
 <!-- Main -->
 <section id="main" class="container small">
   <header>
-    <h2>New Classified Listing</h2>
-    <p>Use this form to sell your Racquet!</p>
+    <h2>Tennis Racquet Quality Index Calculator</h2>
+    <p>Wondering about what your quality index is? Use the form below to find out!</p>
   </header>
   <div class="box">
     <form method="post" action="#">
-      <header>
-        <h3>Racquet Information</h3>
-      </header>
-      <div class="row uniform half collapse-at-2">
-        <div class="6u">
-          <input name="brand" placeholder="Racqet Brand" required="" tabindex="1" type="text">
-        </div>
-        <div class="6u">
-          <input name="model" placeholder="Racquet Model" required="" tabindex="2" type="text">
-        </div>
-      </div>
-      <div class="row uniform half collapse-at-4">
-        <div class="3u">
+        <div class="12u">
           <input name="mass" placeholder="Mass" required="" tabindex="1" type="text">
         </div>
-        <div class="3u">
+        <br>
+        <div class="12u">
           <input name="length" placeholder="Weight" required="" tabindex="2" type="text">
         </div>
-        <div class="3u">
+         <br>
+        <div class="12u">
           <input name="swing" placeholder="Swing Weight" required="" tabindex="2" type="text">
         </div>
-        <div class="3u">
+         <br>
+        <div class="12u">
           <input name="balance" placeholder="Balance Point" required="" tabindex="2" type="text">
         </div>
-      </div>
-      <header>
-        <h3>Selling Information</h3>
-      </header>
-      <div class="row uniform half collapse-at-3">
-        <div class="4u">
-          <input type="text" name="price" required="" placeholder="Price">
-        </div>
-        <div class="4u">
-          <select name="newused" required>
-            <option value="">New or Used</option>
-            <option >New</option>
-            <option >Used</option>
-          </select>
-        </div>
-        <div class="4u">
-          <input type="text" name="image" required="" placeholder="Upload Image-TEMP">
-        </div>
-      </div>
-        <div class="row uniform half">
-        <div class="12u">
-          <textarea name="desc" placeholder="Description" rows="4"></textarea>
-        </div>
-      </div>
+         <br>
       <div class="row uniform half collapse-at-2">
       <div class="row uniform">
         <div class="12u">

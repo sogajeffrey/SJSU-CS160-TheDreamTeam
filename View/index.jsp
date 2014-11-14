@@ -15,18 +15,6 @@
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style-wide.css" />
 </noscript>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-				$('#login-trigger').click(function(){
-					$(this).next('#login-content').slideToggle();
-					$(this).toggleClass('active');					
-					
-					if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
-						else $(this).find('span').html('&#x25BC;')
-					})
-		  });
-</script>
 </head><body>
 
 <!-- Header -->
@@ -38,45 +26,12 @@ $(document).ready(function(){
   <!-- Nav -->
   <nav id="nav">
     <ul>
-      <li class="current"><a href="index.jsp">Home</a></li>
-      <li> <a href="">temp</a>
-        <ul>
-          <li><a href="#">Lorem dolor</a></li>
-          <li><a href="#">Magna phasellus</a></li>
-          <li><a href="#">Etiam sed tempus</a></li>
-          <li> <a href="">Submenu</a>
-            <ul>
-              <li><a href="#">Lorem dolor</a></li>
-              <li><a href="#">Phasellus magna</a></li>
-              <li><a href="#">Magna phasellus</a></li>
-              <li><a href="#">Etiam nisl</a></li>
-              <li><a href="#">Veroeros feugiat</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Veroeros feugiat</a></li>
-        </ul>
-      </li>
-      <li><a href="left-sidebar.html">Quality Index Calculator</a></li>
-      <li><a href="right-sidebar.html">Classified Listings</a></li>
+      <li><a href="index.jsp">Home</a></li>
+      <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
+      <li class="current"><a href="listings.jsp">Classified Listings</a></li>
       <li><a href="newlisting.html">New Listing</a></li>
-      <li><a href="no-sidebar.html">No Sidebar</a></li>    
-      <li id="login"> <a id="login-trigger" href="#"> Log in <span>▼</span> </a>
-        <div id="login-content">
-          <form>
-            <fieldset id="inputs">
-              <input id="username" type="email" name="Email" placeholder="Your email address" required>
-              <input id="password" type="password" name="Password" placeholder="Password" required>
-            </fieldset>
-            <fieldset id="actions">
-              <input type="submit" id="submit" value="Log in">
-              <label>
-                <input type="checkbox" checked="checked">
-                Keep me signed in</label>
-            </fieldset>
-          </form>
-        </div>
-      </li>
-      <li id="signup"> <a href="signup.jsp">Sign up</a> </li>
+      <li ><a href="login.jsp">Login</a></li>
+      <li> <a href="signup.jsp">Sign up</a> </li>
     </ul>
   </nav>
 </div>
