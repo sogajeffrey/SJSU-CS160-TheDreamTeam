@@ -27,9 +27,9 @@
   <nav id="nav">
     <ul>
       <li><a href="index.jsp">Home</a></li>
-      <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li class="current"><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.html">New Listing</a></li>
+      <li class="current"><a href="qicalc.jsp">Quality Index Calculator</a></li>
+      <li ><a href="listings.jsp">Classified Listings</a></li>
+      <li><a href="newlisting.jsp">New Listing</a></li>
       <li ><a href="login.jsp">Login</a></li>
       <li> <a href="signup.jsp">Sign up</a> </li>
     </ul>
@@ -39,10 +39,10 @@
 <section id="main" class="container small">
   <header>
     <h2>Tennis Racquet Quality Index Calculator</h2>
-    <p>Wondering about what your quality index is? Use the form below to find out!</p>
+    <p>Wondering about what your racquet's quality index is? Use the form below to find out!</p>
   </header>
   <div class="box">
-    <form method="post" action="#">
+    <form method="post" action="">
         <div class="12u">
           <input name="mass" placeholder="Mass" required="" tabindex="1" type="text">
         </div>

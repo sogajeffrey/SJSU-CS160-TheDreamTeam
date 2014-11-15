@@ -28,10 +28,10 @@
     <ul>
       <li><a href="index.jsp">Home</a></li>
       <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li class="current"><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.html">New Listing</a></li>
+      <li ><a href="listings.jsp">Classified Listings</a></li>
+      <li><a href="newlisting.jsp">New Listing</a></li>
       <li ><a href="login.jsp">Login</a></li>
-      <li> <a href="signup.jsp">Sign up</a> </li>
+      <li class="current"> <a href="signup.jsp">Sign up</a> </li>
     </ul>
   </nav>
 </div>

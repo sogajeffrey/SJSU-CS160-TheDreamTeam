@@ -27,10 +27,10 @@
   <nav id="nav">
     <ul>
       <li><a href="index.jsp">Home</a></li>
-      <li><a href="left-sidebar.html">Quality Index Calculator</a></li>
-      <li><a href="right-sidebar.html">Classified Listings</a></li>
-      <li><a href="newlisting.html">New Listing</a></li>
-      <li><a href="login.jsp">Login</a></li>
+      <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
+      <li ><a href="listings.jsp">Classified Listings</a></li>
+      <li><a href="newlisting.jsp">New Listing</a></li>
+      <li class="current"><a href="login.jsp">Login</a></li>
       <li> <a href="signup.jsp">Sign up</a> </li>
     </ul>
   </nav>

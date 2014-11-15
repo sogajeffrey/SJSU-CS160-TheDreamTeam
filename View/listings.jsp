@@ -51,7 +51,7 @@ $(document).ready(function() {
   </header>
 </section>
 <section id="main" class="container large">
-  <table id="listings" class="display" cellspacing="0" width="100%">
+  <table id="listings" class="display" cellspacing="3" width="100%">
     <thead>
       <tr>
         <th>Image</th>

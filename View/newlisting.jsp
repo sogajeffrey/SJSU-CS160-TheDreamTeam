@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RacQual by The Dream Team</title>
+<title>RacQual New Listing</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -28,8 +28,8 @@
     <ul>
       <li><a href="index.jsp">Home</a></li>
       <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li class="current"><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.html">New Listing</a></li>
+      <li ><a href="listings.jsp">Classified Listings</a></li>
+      <li class="current"><a href="newlisting.jsp">New Listing</a></li>
       <li ><a href="login.jsp">Login</a></li>
       <li> <a href="signup.jsp">Sign up</a> </li>
     </ul>
@@ -83,7 +83,8 @@
           </select>
         </div>
         <div class="4u">
-          <input type="text" name="image" required="" placeholder="Upload Image-TEMP">
+        	Upload an Image
+          <input class="buttom" name="upload" tabindex="5" value="image" type="file">
         </div>
       </div>
         <div class="row uniform half">

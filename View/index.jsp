@@ -26,10 +26,10 @@
   <!-- Nav -->
   <nav id="nav">
     <ul>
-      <li><a href="index.jsp">Home</a></li>
+      <li class="current"><a href="index.jsp">Home</a></li>
       <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li class="current"><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.html">New Listing</a></li>
+      <li ><a href="listings.jsp">Classified Listings</a></li>
+      <li><a href="newlisting.jsp">New Listing</a></li>
       <li ><a href="login.jsp">Login</a></li>
       <li> <a href="signup.jsp">Sign up</a> </li>
     </ul>
@@ -40,81 +40,37 @@
 <section id="banner">
   <header>
     <h2>Try out our <em>Quality Index Calculator</em></h2>
-    <a href="#" class="button">Check it out</a> </header>
+    <a href="qicalc.jsp" class="button">Check it out</a> </header>
 </section>
-
+<!-- Gigantic Heading -->
+<section class="wrapper style2">
+  <div class="container">
+    <header class="major">
+      <h2>Lots of new tennis players are often confused about how to pick out a good racquet</h2>
+      <p>Thats why we provide a one stop shop for all of your tennis needs. Below is what we offer!</p>
+    </header>
+  </div>
+</section>
 <!-- Highlights -->
 <section class="wrapper style1">
   <div class="container">
     <div class="row double">
       <section class="4u">
-        <div class="box highlight"> <i class="icon major fa-paper-plane"></i>
-          <h3></h3>
-          <p></p>
+        <div class="box highlight"><a href="qicalc.jsp"> <i class="icon major fa-calculator"></a></i>
+          <h3>Racquet Quality Index Calculator</h3>
+          <p>All you do is enter the mass, weight, swingweight, and balance point and we will tell you how good the racquet is!</p>
         </div>
       </section>
       <section class="4u">
-        <div class="box highlight"> <i class="icon major fa-pencil"></i>
-          <h3></h3>
-          <p></p>
+        <div class="box highlight"><a href="newlisting.jsp"> <i class="icon major fa-edit"></a></i>
+          <h3>Sell Your Used or New Racquets</h3>
+          <p>We provide a place where you can sell your racquet to other new tennis players.</p>
         </div>
       </section>
       <section class="4u">
-        <div class="box highlight"> <i class="icon major fa-wrench"></i>
-          <h3></h3>
-          <p></p>
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
-
-<!-- Gigantic Heading -->
-<section class="wrapper style2">
-  <div class="container">
-    <header class="major">
-      <h2>A tennis racquet's Quality Index is very important</h2>
-      <p>Thats why we provide a very easy to use Quality Index calculator</p>
-    </header>
-  </div>
-</section>
-
-<!-- Posts -->
-<section class="wrapper style1">
-  <div class="container">
-    <div class="row">
-      <section class="6u">
-        <div class="box post"> <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-          <div class="inner">
-            <h3></h3>
-            <p></p>
-          </div>
-        </div>
-      </section>
-      <section class="6u">
-        <div class="box post"> <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-          <div class="inner">
-            <h3></h3>
-            <p></p>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="row">
-      <section class="6u">
-        <div class="box post"> <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-          <div class="inner">
-            <h3></h3>
-            <p></p>
-          </div>
-        </div>
-      </section>
-      <section class="6u">
-        <div class="box post"> <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-          <div class="inner">
-            <h3></h3>
-            <p></p>
-          </div>
+        <div class="box highlight"><a href="listings.jsp"> <i class="icon major fa-list-ul"></a></i>
+          <h3>View Racquet Listings</h3>
+          <p>Looking for a racquet? Buy your next racquet from RacQual!</p>
         </div>
       </section>
     </div>
@@ -126,7 +82,7 @@
   <div class="container">
     <header>
       <h2>Want to sell a tennis racquet?</h2>
-      <a href="#" class="button">Click Here</a> </header>
+      <a href="newlisting.jsp" class="button">Click Here</a> </header>
   </div>
 </section>
 
