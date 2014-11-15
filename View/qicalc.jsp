@@ -44,11 +44,11 @@
   <div class="box">
     <form method="post" action="">
         <div class="12u">
-          <input name="mass" placeholder="Mass" required="" tabindex="1" type="text">
+          <input name="mass" placeholder="Mass (oz)" required="" tabindex="1" type="text">
         </div>
         <br>
         <div class="12u">
-          <input name="length" placeholder="Weight" required="" tabindex="2" type="text">
+          <input name="length" placeholder="Length (Inches)" required="" tabindex="2" type="text">
         </div>
          <br>
         <div class="12u">
@@ -56,7 +56,7 @@
         </div>
          <br>
         <div class="12u">
-          <input name="balance" placeholder="Balance Point" required="" tabindex="2" type="text">
+          <input name="balance" placeholder="Balance Point (pts from midpoint, -ve for HL)" required="" tabindex="2" type="text">
         </div>
          <br>
       <div class="row uniform half collapse-at-2">

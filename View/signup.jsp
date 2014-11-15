@@ -91,10 +91,10 @@
                             </select>
                         </div>
                         <div class="3u">
-                            <input type="" maxlength="2" name="BirthDay"  placeholder="Day" required="">
+                            <input type="text" maxlength="2" name="BirthDay"  placeholder="Day" required="">
                         </div>
                         <div class ="4u">
-                            <input type="" maxlength="4" name="BirthYear" placeholder="Year" required="">
+                            <input type="text" maxlength="4" name="BirthYear" placeholder="Year" required="">
                         </div>
                     </div>
                     <div class="row uniform half collapse-at-3">
@@ -102,10 +102,10 @@
                             <input id="phone" name="phone" placeholder="Phone Number" required type="text">
                         </div>
                         <div class ="4u">
-                            <input type="" name="city" placeholder="City" required>
+                            <input type="text" name="city" placeholder="City" required>
                         </div>
                         <div class ="4u">
-                            <input type="" name="state" placeholder="State" required>
+                            <input type="text" name="state" placeholder="State" required>
                         </div>
                     </div>
                     <div class="row uniform">

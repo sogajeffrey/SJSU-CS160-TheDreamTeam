@@ -206,6 +206,14 @@ label {
 	position: relative;
 	top: 0.25em;
 }
+.image.left list {
+	height: 300px
+	display: block;
+	float: left;
+	position: relative;
+	top: 0.25em;
+	
+}
 .image.left img {
 	display: block;
 	width: 100%;
