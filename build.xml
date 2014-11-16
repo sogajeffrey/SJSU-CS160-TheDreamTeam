@@ -31,8 +31,7 @@
 	<target name="build" depends="compile">
 		<delete file="${build.dir}/${war.name}" />
 		<war warfile="${build.dir}/${war.name}" needxmlfile="false">
-			<classes dir="${build.dir}/classes"/>
-			<lib dir="${build.dir}/lib"/>
+			<fileset dir="${build.dir}"/>
 			<fileset dir="${web.dir}">
 				<!-- Need to exclude it since webxml is an attribute of the war tag above -->
 				<exclude name="WEB-INF/web.xml" />
@@ -47,15 +46,18 @@
 
 	<target name="makedir">
 		<mkdir dir="${build.dir}" />
-		<mkdir dir="${build.dir}/classes" />
-		<mkdir dir="${build.dir}/lib" />
+		<mkdir dir="${build.dir}/WEB-INF/" />
+		<mkdir dir="${build.dir}/WEB-INF/classes" />
+		<mkdir dir="${build.dir}/WEB-INF/lib" />
 	</target>
 
-	<target name="compile" depends="">
-		<copy todir="${build.dir}/lib">
+	<target name="compile" depends="clean, makedir">
+		<copy todir="${build.dir}/WEB-INF/lib">
 			<fileset dir="${lib.dir}" includes="*.jar"/>
 		</copy>
-		<javac classpath="${lib.dir}/servlet-api.jar" destdir="${build.dir}/classes" srcdir="${source.dir}"/>
+		
+		<copy file="build.properties" todir="${build.dir}/WEB-INF/classes/"/>
+		<javac classpath="${lib.dir}/servlet-api.jar" destdir="${build.dir}/WEB-INF/classes" srcdir="${source.dir}"/>
 	</target>
 
 	<target name="deploy" depends="clean,makedir, createdb, build, undeploy">
@@ -75,7 +77,7 @@
 			path="/${ant.project.name}"/>
 	</target>
 
-	<target name="clean" depends="">
+	<target name="clean" depends="undeploy">
 		<delete file="${build.dir}/${war.name}" />
 		<delete dir="${build.dir}" />
 	</target>

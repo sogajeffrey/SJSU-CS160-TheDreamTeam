@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -8,10 +9,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Driver;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  *
- * @author Bob
+ * @author Jay Patel
+ * @version 2014/11/15
  */
 @WebServlet(name = "UserRegistrationServlet", urlPatterns = {"/UserRegistrationServlet"})
 public class UserRegistrationServlet extends HttpServlet {
@@ -40,7 +46,7 @@ public class UserRegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Get Parameters from the form. 
+        //Get Parameters from the form.
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String firstName = request.getParameter("firstname");
@@ -50,11 +56,17 @@ public class UserRegistrationServlet extends HttpServlet {
         String city = request.getParameter("city");
         String state = request.getParameter("state");
         final double RATING = 0.0;//Double.parseDouble(request.getParameter("rating"));
-        
+
+        Properties prop = new Properties();
+        prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("build.properties"));
         Connection conn;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/racqual", "root", "password");
+            String pass = prop.getProperty("pass");
+            String user = prop.getProperty("username");
+            String url = prop.getProperty("url") + "racqual";
+
+            conn = DriverManager.getConnection(url, user, pass);
 
             String sql = "INSERT INTO userinfo(username, password, firstName, lastName, email, phoneNumber, city, state, rating)"
                     + "VALUES(?,?,?,?,?,?,?,?,?)";
@@ -71,18 +83,14 @@ public class UserRegistrationServlet extends HttpServlet {
             stmt.setString(8, state);
             stmt.setDouble(9, RATING);
 
-        /*
-        javax.swing.JOptionPane.showMessageDialog(null, "User Name: " + username);
-        javax.swing.JOptionPane.showMessageDialog(null, "Password: " + password);
-        javax.swing.JOptionPane.showMessageDialog(null, "first name: " + firstName);
-        javax.swing.JOptionPane.showMessageDialog(null, "last name: " + lastName);
-        javax.swing.JOptionPane.showMessageDialog(null, "email: " + email);
-        javax.swing.JOptionPane.showMessageDialog(null, "city: " + city);
-        javax.swing.JOptionPane.showMessageDialog(null, "state: " + state);
-        javax.swing.JOptionPane.showMessageDialog(null, "phone: " + phoneNumber);
-        */
             int i = stmt.executeUpdate();
-            
+            stmt.close();
+            conn.close();
+            Enumeration<Driver> drivers = DriverManager.getDrivers();
+            while (drivers.hasMoreElements()) {
+                Driver driver = drivers.nextElement();
+                DriverManager.deregisterDriver(driver);
+            }
             if (i != 0) {
                 response.sendRedirect("registered.jsp");
             } else {
@@ -96,7 +104,6 @@ public class UserRegistrationServlet extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
-     *
      * @return a String containing servlet description
      */
     @Override
