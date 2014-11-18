@@ -1,12 +1,8 @@
-   <%@ page language="java" 
-         contentType="text/html; charset=windows-1256"
-         pageEncoding="windows-1256"
-         import="defaultpackage.User"
-   %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RacQual Login</title>
+<title>RacQual</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -44,11 +40,14 @@
 <!-- Main -->
 <section id="main" class="container small">
   <header>
-  <% user currentUser = (user (session.getAttribute("currentSessionUser"));%>
-    <h2>Welcome to RacQual! <%= currentUser.getFirstName() + " " + currentUser.getLastName() %> </h2>
+  <% //user currentUser = (user (session.getAttribute("currentSessionUser"));%> 
+    <h2>Welcome to RacQual! <%//= currentUser.getFirstName() + " " + currentUser.getLastName() %> </h2>
   </header>
   <div class="box">
-		
+	 <header>
+    <h2>Here are some things you can do:</h2>
+    <a href="newlisting.jsp" class="button">New Listing</a> 	
+    <a href="listings.jsp" class="button">All Listings</a> </header>	
   </div>
 </section>
 
