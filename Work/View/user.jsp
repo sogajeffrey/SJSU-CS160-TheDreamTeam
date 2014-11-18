@@ -1,4 +1,8 @@
-
+<%@ page language="java" 
+         contentType="text/html; charset=windows-1256"
+         pageEncoding="windows-1256"
+         import="defaultpackage.User"
+   %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -40,8 +44,8 @@
 <!-- Main -->
 <section id="main" class="container small">
   <header>
-  <% //user currentUser = (user (session.getAttribute("currentSessionUser"));%> 
-    <h2>Welcome to RacQual! <%//= currentUser.getFirstName() + " " + currentUser.getLastName() %> </h2>
+  <% user currentUser = (user (session.getAttribute("currentSessionUser"));%> 
+    <h2>Welcome to RacQual! <%= currentUser.getFirstName() + " " + currentUser.getLastName() %> </h2>
   </header>
   <div class="box">
 	 <header>
