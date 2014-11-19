@@ -17,7 +17,7 @@
 </noscript>
 </head><body>
 
-<jsp:include page ="nav.jsp">
+<%@ include file="nav.jsp" %> 
 
 <!-- Banner -->
 <section id="banner">
