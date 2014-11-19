@@ -42,7 +42,7 @@
     <h2>Login to RacQual</h2>
   </header>
   <div class="box">
-    <form method=post action="loginservlet">
+    <form method=post action="LoginServlet">
       <div class="row uniform half collapse-at-2">
         <div class="6u">
           <input type="text" name="username" placeholder="Username" />
