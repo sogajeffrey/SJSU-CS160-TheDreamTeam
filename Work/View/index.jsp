@@ -68,30 +68,6 @@
       <a href="newlisting.jsp" class="button">Click Here</a> </header>
   </div>
 </section>
-
-<!-- Footer -->
-<div id="footer">
-  <div class="container">
-    <div class="row ">
-      <div class="6u">
-        <div class="row collapse-at-2">
-          <section class="6u">
-            <h3></h3>
-            <ul class="links">
-
-            </ul>
-          </section>
-          <section class="6u">
-            <h3></h3>
-            <ul class="links">
-
-            </ul>
-          </section>
-        </div>
-      </div>
-     
-    </div>
-  </div>
     
   <!-- Copyright -->
   <div class="copyright">
