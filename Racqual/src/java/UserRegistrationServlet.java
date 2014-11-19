@@ -1,3 +1,4 @@
+import Model.Users;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Driver;
-import java.util.Enumeration;
 import java.util.Properties;
 
+import javax.servlet.http.HttpSession;
 /**
  * Servlet to Register Users. 
  * @author Jay Patel
- * @version 2014/11/15
+ * @version 11/15/2014
  */
 @WebServlet(name = "UserRegistrationServlet", urlPatterns = {"/UserRegistrationServlet"})
 public class UserRegistrationServlet extends HttpServlet {
@@ -24,14 +24,13 @@ public class UserRegistrationServlet extends HttpServlet {
     public UserRegistrationServlet() throws IOException {
         Properties prop = new Properties();
         prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("build.properties"));
-
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             String pass = prop.getProperty("pass");
             String user = prop.getProperty("username");
             String url = prop.getProperty("url") + "racqual";
-
             conn = DriverManager.getConnection(url, user, pass);
+            
             String sql = "INSERT INTO userinfo(username, password, firstName, lastName, email, phoneNumber, city, state, rating)"
                     + "VALUES(?,?,?,?,?,?,?,?,?)";
 
@@ -78,7 +77,16 @@ public class UserRegistrationServlet extends HttpServlet {
             conn.close();
             
             if (i != 0) {
-                response.sendRedirect("registered.jsp");
+                Users user = new Users();
+		user.setUserName(username);
+                user.setPassWord(password);
+                user.setFirstName(firstName);
+                user.setLastName(lastName);
+
+                HttpSession session = request.getSession(true);
+		session.setAttribute("currentSessionUser", user);
+			
+                response.sendRedirect("user.jsp");
             } else {
                 response.sendRedirect("notregistered.jsp");
             }
@@ -87,11 +95,3 @@ public class UserRegistrationServlet extends HttpServlet {
         }
     }
 }
-
-/**
- * Enumeration<Driver> drivers = DriverManager.getDrivers();
-            while (drivers.hasMoreElements()) {
-                Driver driver = drivers.nextElement();
-                DriverManager.deregisterDriver(driver);
-            } 
- **/

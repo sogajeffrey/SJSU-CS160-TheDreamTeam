@@ -1,98 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Racqual" default="deploy" basedir=".">
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="Racqual" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Racqual.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
 
-	<tstamp prefix="build-info">
-		<format property="current-date" pattern="d-MMMM-yyyy" locale="en" />
-		<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
-	</tstamp>
-	<property file="build.properties"/>
-	
-	<path id="classpath">
- 		<fileset dir="${lib.dir}" includes="catalina-ant.jar"/>
- 		<fileset dir="${lib.dir}" includes="tomcat-util.jar"/>
-	</path>
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. These targets are usually executed 
+    before and after some main targets. They are: 
 
-	<taskdef name="start" classname="org.apache.catalina.ant.StartTask">
-		<classpath refid="classpath"/>
-	</taskdef>
+      -pre-init:                 called before initialization of project properties 
+      -post-init:                called after initialization of project properties 
+      -pre-compile:              called before javac compilation 
+      -post-compile:             called after javac compilation 
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-dist:                 called before archive building 
+      -post-dist:                called after archive building 
+      -post-clean:               called after cleaning build products 
+      -pre-run-deploy:           called before deploying
+      -post-run-deploy:          called after deploying
 
-	<taskdef name="stop" classname="org.apache.catalina.ant.StopTask">
-		<classpath refid="classpath"/>
-	</taskdef>
+    Example of pluging an obfuscator after the compilation could look like 
 
-	<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask">
-		<classpath refid="classpath"/>
-	</taskdef>
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
 
-	<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask">
-		<classpath refid="classpath"/>
-	</taskdef>
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
 
-	<target name="build" depends="compile">
-		<delete file="${build.dir}/${war.name}" />
-		<war warfile="${build.dir}/${war.name}" needxmlfile="false">
-			<fileset dir="${build.dir}"/>
-			<fileset dir="${web.dir}">
-				<!-- Need to exclude it since webxml is an attribute of the war tag above -->
-				<exclude name="WEB-INF/web.xml" />
-			</fileset>
-			<manifest>
-				<attribute name="Built-By" value="${builder}" />
-				<attribute name="Built-On" value="${build-info.current-date}" />
-				<attribute name="Built-At" value="${build-info.current-time}" />
-			</manifest>
-		</war>
-	</target>
 
-	<target name="makedir">
-		<mkdir dir="${build.dir}" />
-		<mkdir dir="${build.dir}/WEB-INF/" />
-		<mkdir dir="${build.dir}/WEB-INF/classes" />
-		<mkdir dir="${build.dir}/WEB-INF/lib" />
-	</target>
+    Other way how to customize the build is by overriding existing main targets.
+    The target of interest are: 
 
-	<target name="compile" depends="clean, makedir">
-		<copy todir="${build.dir}/WEB-INF/lib">
-			<fileset dir="${lib.dir}" includes="*.jar"/>
-		</copy>
-		
-		<copy file="build.properties" todir="${build.dir}/WEB-INF/classes/"/>
-		<javac classpath="${lib.dir}/servlet-api.jar" destdir="${build.dir}/WEB-INF/classes" srcdir="${source.dir}"/>
-	</target>
+      init-macrodef-javac:    defines macro for javac compilation
+      init-macrodef-junit:   defines macro for junit execution
+      init-macrodef-debug:    defines macro for class debugging
+      do-dist:                archive building
+      run:                    execution of project 
+      javadoc-build:          javadoc generation 
 
-	<target name="deploy" depends="clean,makedir, createdb, build, undeploy">
-		<deploy url="${tomcat.url}/"
-			username="${tomcat.user}"
-			password="${tomcat.pass}"
-			path="/${ant.project.name}"
-			war="${build.dir}/${war.name}"/>
-	</target>
+    Example of overriding the target for project execution could look like 
 
-	<target name="undeploy" depends="">
-		<undeploy 
-			failonerror="no"
-			url="${tomcat.url}/"
-			username="${tomcat.user}"
-			password="${tomcat.pass}"
-			path="/${ant.project.name}"/>
-	</target>
+        <target name="run" depends="<PROJNAME>-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
 
-	<target name="clean" depends="undeploy">
-		<delete file="${build.dir}/${war.name}" />
-		<delete dir="${build.dir}" />
-	</target>
+    Notice that overridden target depends on jar target and not only on 
+    compile target as regular run target does. Again, for list of available 
+    properties which you can use check the target you are overriding in 
+    nbproject/build-impl.xml file. 
 
-	<target name="createdb" depends="dropdb">
-		<sql password="${pass}" classpath="lib/mysql-connector-java-5.1.33-bin.jar" userid="${username}" url="${url}" driver="com.mysql.jdbc.Driver">
-			<transaction src="createdb.sql"/>
-			<transaction src="dreamteam.sql"/>
-		</sql>
-	</target>
-
-	<target name="dropdb" depends="">
-		<sql password="${pass}" classpath="lib/mysql-connector-java-5.1.33-bin.jar" userid="${username}" url="${url}" driver="com.mysql.jdbc.Driver">
-			<transaction src="dropdb.sql"/>
-		</sql>
-	</target>
-
+    -->
 </project>
