@@ -19,7 +19,6 @@
 
 <%@ include file="nav.jsp" %> 
 
-
 <!-- Main -->
 <section id="main" class="container small">
   <header>

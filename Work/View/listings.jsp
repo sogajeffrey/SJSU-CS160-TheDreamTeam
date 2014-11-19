@@ -77,7 +77,7 @@ $(document).ready(function() {
         <td>123</td>
         <td>334</td>
         <td>3</td>
-        </tr>
+      </tr>
         
         
    
