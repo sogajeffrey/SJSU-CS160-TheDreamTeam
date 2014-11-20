@@ -60,14 +60,7 @@ public class QICalcServlet extends HttpServlet {
 		}
 	   }
 
-	// TODO: correctly write QI and EVAL to response
-	final String[] QI_WRAPPER = { "" + QI };
-	final String[] EVAL_WRAPPER = { EVAL };
-
-	request.getParameterMap().put("qualityIndex", QI_WRAPPER);
-	request.getParameterMap().put("evaluation", EVAL_WRAPPER);
-	
-	// lol
+	// TODO: pass QI and EVAL on to correct JSP
    }
    
    private static final double OZS_PER_LB = 16.0;
