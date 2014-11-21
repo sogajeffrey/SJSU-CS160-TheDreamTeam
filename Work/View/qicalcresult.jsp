@@ -1,7 +1,7 @@
 <%-- 
-    Document   : registered
+    Document   : QIRESULT
     Created on : Nov 10, 2014, 10:25:17 PM
-    Author     : Bob
+    Author     : DT
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +28,17 @@
 
 	<section id="main" class="container small">
   <header>
-    <h2>Here are the results!</h2>
+    <h2>QI Calculator Results!</h2>
+  </header>
+  <% if(${grade}=="Good") {%>
+  <span class="image"><img src="images/good.jpg" alt="Good" /></span>
+  <% } else if(${grade}=="Mediocre") { %>
+   <span class="image"><img src="images/mediocre.jpg" alt="Mediocre" /></span>
+   <% } else { %>
+   <span class="image"><img src="images/bad.jpg" alt="Bad" /></span>
+   <% } %>
+   <header>
+    <h3>Your Quality Index is: <% ${grade} ${QIvalue}%> </h3>
   </header>
   </section>
    
