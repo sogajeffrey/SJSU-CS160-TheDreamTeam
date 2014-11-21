@@ -9,7 +9,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Registration Fail</title>
+<title>RacQual by The Dream Team</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -29,7 +29,7 @@
 
 	<section id="main" class="container small">
   <header>
-    <h2>You were not registered, please go back and try again</h2>
+    <h2>Here are the results!</h2>
   </header>
   </section>
    
@@ -46,7 +46,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Registration Fail</title>
+<title>RacQual by The Dream Team</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -82,7 +82,7 @@
 </div>
 	<section id="main" class="container small">
   <header>
-    <h2>You were not registered, please go back and try again</h2>
+    <h2>Here are the results!</h2>
   </header>
   </section>
    
