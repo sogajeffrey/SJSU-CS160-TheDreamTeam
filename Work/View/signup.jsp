@@ -17,7 +17,7 @@
 </noscript>
 </head><body>
 
-<%@ include file="nav.jsp" %> 
+<%@ include file="nav.jsp" %>
 
         <!-- Main -->
         <section id="main" class="container small">
@@ -53,34 +53,8 @@
                         </div>
                     </div>
                     <div class="row uniform half collapse-at-3">
-                        <div class = "1u">
-                            <label> Birthday: </label>
-                        </div>
 
-                        <div class="4u">
-                            <select name="BirthMonth" required>
-                                <option value="">Month</option>
-                                <option  value="01">January</option>
-                                <option value="02">February</option>
-                                <option value="03" >March</option>
-                                <option value="04">April</option>
-                                <option value="05">May</option>
-                                <option value="06">June</option>
-                                <option value="07">July</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12" >December</option>
-                            </select>
-                        </div>
-                        <div class="3u">
-                            <input type="text" maxlength="2" name="BirthDay"  placeholder="Day" required="">
-                        </div>
-                        <div class ="4u">
-                            <input type="text" maxlength="4" name="BirthYear" placeholder="Year" required="">
-                        </div>
-                    </div>
+
                     <div class="row uniform half collapse-at-3">
                         <div class="4u">
                             <input id="phone" name="phone" placeholder="Phone Number" required type="text">
