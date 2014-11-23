@@ -1,10 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- 
-    Document   : QIRESULT
-    Created on : Nov 10, 2014, 10:25:17 PM
-    Author     : DT
---%>
 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -26,20 +21,21 @@
 
 <%@ include file="nav.jsp" %> 
 
-	<section id="main" class="container small">
+<section id="main" class="container small">
   <header>
     <h2>QI Calculator Results!</h2>
   </header>
-  <% if(${grade}=="Good") {%>
-  <span class="image"><img src="images/good.jpg" alt="Good" /></span>
-  <% } else if(${grade}=="Mediocre") { %>
-   <span class="image"><img src="images/mediocre.jpg" alt="Mediocre" /></span>
-   <% } else { %>
-   <span class="image"><img src="images/bad.jpg" alt="Bad" /></span>
-   <% } %>
-   <header>
-    <h3>Your Quality Index is: <% ${grade} ${QIvalue}%> </h3>
-  </header>
+  <% String g = (String)request.getAttribute("grade");
+     if(g.equals("Good")) {
+      out.println("<span class='image'><img src='images/Good.jpg' alt='Good' width="150" height="150" /></span>");
+     } else if(g.equals("Mediocre")) {
+        out.println("<span class='image'><img src='images/mediocre.jpg' alt='Mediocre' width="150" height="150" /></span>");
+    } else {
+        out.println("<span class='image'><img src='images/bad.jpg' alt='Bad' width="150" height="150" /></span>");
+    } 
+  %>
+
+   <h3>Your Quality Index is: ${QIvalue} Status is ${grade}</h3>
   </section>
    
     </body>
