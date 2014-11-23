@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +37,11 @@ public class QIServelet extends HttpServlet {
         final double LENGTH = Double.parseDouble(request.getParameter("length"));
         final double SWING_WEIGHT = Double.parseDouble(request.getParameter("swing"));
         final double BALANCE_POINT = Double.parseDouble(request.getParameter("balance"));
+        
+        System.out.println(MASS);
+        System.out.println(LENGTH);
+        System.out.println(SWING_WEIGHT);
+        System.out.println(BALANCE_POINT);
 
         // Q = MR^2/I
         // where M = mass in kilograms,
@@ -49,7 +54,7 @@ public class QIServelet extends HttpServlet {
         final double I = SWING_WEIGHT;
 
         // This is the quantitative quality index:
-        final double QI = M * R * R / I;
+        double QI = M * R * R / I;
 
         // This is the qualitative quality index:
         final String EVAL;
@@ -62,7 +67,14 @@ public class QIServelet extends HttpServlet {
                 EVAL = "BAD";
             }
         }
+        DecimalFormat df = new DecimalFormat("#.##");
+        QI = Double.valueOf(df.format(QI));
         
-       System.out.println(EVAL + ' ' + QI);
+        request.setAttribute("grade", EVAL);
+        request.setAttribute("QIvalue", QI);
+        
+        System.out.println("Grade is " + EVAL + " QI VALUE IS: " + QI);
+        
+        request.getRequestDispatcher("/qicalcresult.jsp").forward(request, response);
     }
 }
