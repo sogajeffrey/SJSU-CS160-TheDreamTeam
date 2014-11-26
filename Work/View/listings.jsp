@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="Model.racquet" %>
+<%@ page import="Model.listings" %>
 <jsp:useBean id="racquets" type="ArrayList<Model.Racquet>" scope="session" />
 <jsp:useBean id="listings" type="ArrayList<Model.Racquet>" scope="session" />
 <!DOCTYPE HTML>
