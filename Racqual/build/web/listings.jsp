@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="Model.listings" %>
+<jsp:useBean id="racquets" type="ArrayList<Model.Racquet>" scope="session" />
+<jsp:useBean id="listings" type="ArrayList<Model.Racquet>" scope="session" />
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,24 +28,7 @@ $(document).ready(function() {
 	</script>
 </head><body>
 
-<!-- Header -->
-<div id="header"> 
-  
-  <!-- Logo -->
-  <h1><a href="index.jsp" id="logo">RacQual <em>by The Dream Team</em></a></h1>
-  
-  <!-- Nav -->
-  <nav id="nav">
-    <ul>
-      <li><a href="index.jsp">Home</a></li>
-      <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li class="current"><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.jsp">New Listing</a></li>
-      <li ><a href="login.jsp">Login</a></li>
-      <li> <a href="signup.jsp">Sign up</a> </li>
-    </ul>
-  </nav>
-</div>
+<%@ include file="nav.jsp" %> 
 
 <!-- Main -->
 <section id="main" class="container small">
@@ -58,7 +45,6 @@ $(document).ready(function() {
         <th>Brand</a></th>
         <th>Model</a></th>
         <th>Price</a></th>
-        <th>Description</a></th>
         <th>Quality Index</a></th>
         <th>Mass</a></th>
         <th>Length</a></th>
@@ -66,18 +52,25 @@ $(document).ready(function() {
         <th>Balance Point</a></th>
       </tr>
        </thead>
+       <%for(int i=0; i < racquets.size(); i++)
+    {
+        Racquet rac = new Racquet();
+        rac = (Racquet) racquets.get(i);
+        %>
+        <tr>
+            <td><a href="ViewListing"><img src="<%= rac.getUid() %> " alt="" /></a></td>
+            <td><%= rac.getFirstName() %></td>
+            <td><%= rac.getLastName() %></td>
+            <td><%= rac.getEmail() %></td>
+            <td><%= rac.getPhone() %></td>
+        </tr>
+        <%}%>
+       <% %>
       <tr>
-      	<td><a href="forsale.jsp"><img src="http://static.giantbomb.com/uploads/scale_small/0/140/376641-tennis_racket.jpg" alt="" /></a></td>
-        <td>Dunloup</td>
-        <td>t-3400</td>
-        <td>$1000</td>
-        <td>VERY SPECIAL one click for more</td>
-        <td>1</td>
-        <td>23</td>
-        <td>123</td>
-        <td>334</td>
-        <td>3</td>
-      </tr>
+      	<td><a href="ViewListing"><img src=" " alt="" /></a></td>
+        <td></td>
+        <td></td>
+
         
         
    

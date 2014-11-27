@@ -10,11 +10,11 @@
       <li><a href="index.jsp">Home</a></li>
       <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
       <li ><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.jsp">New Listing</a></li>
      <% if(null == session.getAttribute("currentSessionUser")) { %>
       <li><a href="login.jsp">Login</a></li>
       <li> <a href="signup.jsp">Sign up</a> </li>
       <% } else { %>
+      <li><a href="newlisting.jsp">New Listing</a></li>
       <li><a href="user.jsp">Your Account</a></li>
       <li> <a href="logout.jsp">Logout</a> </li>
       <% } %>

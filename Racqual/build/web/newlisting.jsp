@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -26,7 +27,7 @@
     <p>Use this form to sell your Racquet!</p>
   </header>
   <div class="box">
-    <form method="post" action="ListingCreatorServlet">
+    <form method="post" action="#">
       <header>
         <h3>Racquet Information</h3>
       </header>

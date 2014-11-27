@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%//@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,16 +23,18 @@
 
 <!-- Main -->
       
-  <%@ page import="Model.Users" %>
-  <% Model.Users currentUsers = ((Model.Users) (session.getAttribute("currentSessionUser")));%>
- <h2>Welcome to RacQual! <%= currentUsers.getFirstName() + " " + currentUsers.getLastName() %> </h2>
+  <%//@ page import="Model.Users" %>
+  <% //Model.Users currentUsers = ((Model.Users) (session.getAttribute("currentSessionUser")));%>
+ <h2>Welcome to RacQual! <%//= currentUsers.getFirstName() + " " + currentUsers.getLastName() %> </h2>
  
   
   <div class="box">
 	 <header>
     <h2>Here are some things you can do:</h2>
     <a href="newlisting.jsp" class="button">New Listing</a> 	
-    <a href="listings.jsp" class="button">All Listings</a> </header>	
+    <a href="listings.jsp" class="button">All Listings</a> 
+    
+    </header>	
   </div>
 
 
