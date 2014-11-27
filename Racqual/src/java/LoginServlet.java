@@ -77,8 +77,8 @@ public class LoginServlet extends HttpServlet {
             Users user = new Users();
             user.setFirstName(rs.getString("firstname"));
             user.setLastName(rs.getString("lastname"));
-            user.setUserName("username");
-            user.setPassWord("password");
+            user.setUserName(username);
+            user.setPassWord(password);
             
             stmt.close();
             rs.close();
