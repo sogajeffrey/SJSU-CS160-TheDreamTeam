@@ -19,6 +19,12 @@
 </head><body>
 
 <%@ include file="nav.jsp" %> 
+<%@ page import="Model.Listing" %>
+
+<% Listing in = (Listing)request.getAttribute("listing"); 
+   Racquet rac = in.getRacquet();
+   Users seller = in.getUsers();
+%>
 
 <!-- Main -->
 <section class="wrapper style1">
@@ -27,20 +33,26 @@
       
       <!-- Content -->
       
-      <article> <span class="image left list"><img src="" alt="" /></span>
+      <article> <span class="image left list"><img src="<% in.getPicURL(); %>" alt="Racquet Picture" /></span>
         <header>
-          <h2>Brand Model </h2>
-          <p>How much Money</p>
+          <h2><% rac.getBrand();%>  <%rac.getModelName(); %></h2>
+          <p>I am selling this racquet for: $ <% in.getPrice(); %></p>
         </header>
         <h3>Racquet Specs</h3>
-        
+        <p>Mass: <% rac.getMass(); %> oz </p>
+        <p>Length: <% rac.getLength(); %> in </p>
+        <p>Swing Weight: <% rac.getSwingWeight(); %> oz </p>
+	    <p>Balance Point: <% rac.getBalancePoint(); %> pts from midpoint, -ve for HL </p>
+        <p>Quality Index: <% rac.getQualityIndex(); %> </p>
         <h3>Description</h3>
-        <p>THIS RACQUET IS THE BEST. MEET UP AND CHECK IT OUT!</p>
+        <p> <% in.getDescription(); %></p>
       </article>
       <section id="cta" class="wrapper style3">
         <header>
           <h2>Interested in buying?</h2>
-          <a href="mailto:temp@temp.com" class="button">Email Me!</a> </header>
+          <p> I'm located in: <% seller.getCity(); %>, <% seller.getState(); %> </p>
+          <p> My Phone Number is: <% seller.getPhoneNumber(); %></p>
+          <a href="mailto:<%seller.getEmail();%>" class="button">Email Me!</a> </header>
       </section>
     </div>
   </div>
