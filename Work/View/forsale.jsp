@@ -18,24 +18,7 @@
 </noscript>
 </head><body>
 
-<!-- Header -->
-<div id="header"> 
-  
-  <!-- Logo -->
-  <h1><a href="index.jsp" id="logo">RacQual <em>by The Dream Team</em></a></h1>
-  
-  <!-- Nav -->
-  <nav id="nav">
-    <ul>
-      <li><a href="index.jsp">Home</a></li>
-      <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li ><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.jsp">New Listing</a></li>
-      <li ><a href="login.jsp">Login</a></li>
-      <li> <a href="signup.jsp">Sign up</a> </li>
-    </ul>
-  </nav>
-</div>
+<%@ include file="nav.jsp" %> 
 
 <!-- Main -->
 <section class="wrapper style1">
@@ -44,7 +27,7 @@
       
       <!-- Content -->
       
-      <article> <span class="image left list"><img src="http://static.giantbomb.com/uploads/scale_small/0/140/376641-tennis_racket.jpg" alt="" /></span>
+      <article> <span class="image left list"><img src="" alt="" /></span>
         <header>
           <h2>Brand Model </h2>
           <p>How much Money</p>
