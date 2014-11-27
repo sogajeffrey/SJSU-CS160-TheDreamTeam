@@ -53,10 +53,10 @@ $(document).ready(function() {
       </tr>
        </thead>
        <%for(int i=0; i < racquets.size(); i++)
-    {
-        Racquet rac = new Racquet();
-        rac = (Racquet) racquets.get(i);
-        %>
+    	{
+        listing list = new listing();
+        list = (listing) racquets.get(i);
+        
         <tr>
             <td><a href="ViewListing"><img src="<%= rac.getUid() %> " alt="" /></a></td>
             <td><%= rac.getFirstName() %></td>
@@ -64,16 +64,7 @@ $(document).ready(function() {
             <td><%= rac.getEmail() %></td>
             <td><%= rac.getPhone() %></td>
         </tr>
-        <%}%>
-       <% %>
-      <tr>
-      	<td><a href="ViewListing"><img src=" " alt="" /></a></td>
-        <td></td>
-        <td></td>
-
-        
-        
-   
+        %>
       </table>
 </section>
 

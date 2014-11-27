@@ -1,4 +1,4 @@
-<%//@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,9 +23,9 @@
 
 <!-- Main -->
       
-  <%//@ page import="Model.Users" %>
-  <% //Model.Users currentUsers = ((Model.Users) (session.getAttribute("currentSessionUser")));%>
- <h2>Welcome to RacQual! <%//= currentUsers.getFirstName() + " " + currentUsers.getLastName() %> </h2>
+  <%@ page import="Model.Users" %>
+  <% Model.Users currentUsers = ((Model.Users) (session.getAttribute("currentSessionUser")));%>
+ <h2>Welcome to RacQual! <%= currentUsers.getFirstName() + " " + currentUsers.getLastName() %> </h2>
  
   
   <div class="box">
