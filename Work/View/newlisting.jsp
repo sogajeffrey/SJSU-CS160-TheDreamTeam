@@ -27,7 +27,7 @@
     <p>Use this form to sell your Racquet!</p>
   </header>
   <div class="box">
-    <form method="post" action="ListingCreatorServlet" enctype="multipart/form-data">
+    <form method="post" action="ListingCreatorServlet">
       <header>
         <h3>Racquet Information</h3>
       </header>
