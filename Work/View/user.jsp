@@ -35,6 +35,8 @@
     <a href="changeusersetting.jsp" class="button">Edit Your User Info</a>
     <a href="newlisting.jsp" class="button">New Listing</a> 	
     <a href="listings.jsp" class="button">All Listings</a> 
+    <a href="deleteuserservlet" class="button">DELETE YOUR ACCOUNT</a> 
+
     
     </header>	
   </div>
