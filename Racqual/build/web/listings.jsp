@@ -41,7 +41,7 @@ $(document).ready(function() {
   <table id="listings" class="display" cellspacing="3" width="100%">
     <thead>
       <tr>
-        <th>Image</th>
+        <th>View Listing </th>
         <th>Brand</a></th>
         <th>Model</a></th>
         <th>Price</a></th>
@@ -56,16 +56,14 @@ $(document).ready(function() {
     {
         Racquet rac = new Racquet();
         rac = (Racquet) racquets.get(i);
-        %>
-        <tr>
-            <td><a href="ViewListing"><img src="<%= rac.getUid() %> " alt="" /></a></td>
-            <td><%= rac.getFirstName() %></td>
-            <td><%= rac.getLastName() %></td>
-            <td><%= rac.getEmail() %></td>
-            <td><%= rac.getPhone() %></td>
-        </tr>
-        <%}%>
-       <% %>
+        
+           echo " <tr><td><a href='ViewListingServlet' class='button'>View The Listing!</a></td>";
+           echo " <td><%= rac.getFirstName() %></td>";
+           echo " <td><%= rac.getLastName() %></td>";
+           echo " <td><%= rac.getEmail() %></td>";
+           echo " <td><%= rac.getPhone() %></td></tr>";
+	}
+	%>
       <tr>
       	<td><a href="ViewListing"><img src=" " alt="" /></a></td>
         <td></td>

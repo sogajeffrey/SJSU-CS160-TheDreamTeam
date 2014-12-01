@@ -1,3 +1,4 @@
+package Model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,6 +19,8 @@ public class Listing implements Serializable{
     private int sellerRating;
     private String description;
     private String picURL;
+    private Users users;
+    private Racquet racquet;
     
     //Listing Default constrctor. 
     public Listing() {
@@ -182,5 +185,37 @@ public class Listing implements Serializable{
      */
     public void setPicURL(String picURL) {
         this.picURL = picURL;
+    }
+    
+    /**
+     * Set Users.
+     * @param u the user. 
+     */
+    public void setUsers(Users u) {
+        this.users = u;
+    } 
+    
+    /**
+     * Gets the Users.
+     * @return the users.
+     */
+    public Users getUsers() {
+        return this.users;
+    }
+    
+     /**
+     * Set Racket.
+     * @param r the racket. 
+     */
+    public void setRacket(Racquet r) {
+        this.racquet = r;
+    }
+    
+    /**
+     * Gets the Racket.
+     * @return the racket.
+     */
+    public Racquet getRacket() {
+        return this.racquet;
     }
 }

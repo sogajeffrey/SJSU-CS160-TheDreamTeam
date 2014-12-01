@@ -18,24 +18,13 @@
 </noscript>
 </head><body>
 
-<!-- Header -->
-<div id="header"> 
-  
-  <!-- Logo -->
-  <h1><a href="index.jsp" id="logo">RacQual <em>by The Dream Team</em></a></h1>
-  
-  <!-- Nav -->
-  <nav id="nav">
-    <ul>
-      <li><a href="index.jsp">Home</a></li>
-      <li><a href="qicalc.jsp">Quality Index Calculator</a></li>
-      <li ><a href="listings.jsp">Classified Listings</a></li>
-      <li><a href="newlisting.jsp">New Listing</a></li>
-      <li ><a href="login.jsp">Login</a></li>
-      <li> <a href="signup.jsp">Sign up</a> </li>
-    </ul>
-  </nav>
-</div>
+<%@ include file="nav.jsp" %> 
+<%@ page import="Model.Listing" %>
+
+<% Listing in = (Listing)request.getAttribute("listing"); 
+   Racquet rac = in.getRacquet();
+   Users seller = in.getUsers();
+%>
 
 <!-- Main -->
 <section class="wrapper style1">
@@ -44,21 +33,38 @@
       
       <!-- Content -->
       
-      <article> <span class="image left list"><img src="http://static.giantbomb.com/uploads/scale_small/0/140/376641-tennis_racket.jpg" alt="" /></span>
+      <article> 
         <header>
-          <h2>Brand Model </h2>
-          <p>How much Money</p>
+          <h2><% rac.getBrand();%>  <%rac.getModelName(); %></h2>
+          <p>I am selling this racquet for: $ <% in.getPrice(); %></p>
         </header>
         <h3>Racquet Specs</h3>
-        
+        <p>Mass: <% rac.getMass(); %> oz </p>
+        <p>Length: <% rac.getLength(); %> in </p>
+        <p>Swing Weight: <% rac.getSwingWeight(); %> oz </p>
+	    <p>Balance Point: <% rac.getBalancePoint(); %> pts from midpoint, -ve for HL </p>
+        <p>Quality Index: <% rac.getQualityIndex(); %> </p>
         <h3>Description</h3>
-        <p>THIS RACQUET IS THE BEST. MEET UP AND CHECK IT OUT!</p>
+        <p> <% in.getDescription(); %></p>
       </article>
       <section id="cta" class="wrapper style3">
         <header>
           <h2>Interested in buying?</h2>
-          <a href="mailto:temp@temp.com" class="button">Email Me!</a> </header>
+          <p> I'm located in: <% seller.getCity(); %>, <% seller.getState(); %> </p>
+          <p> My Phone Number is: <% seller.getPhoneNumber(); %></p>
+          <a href="mailto:<%seller.getEmail();%>" class="button">Email Me!</a> </header>
       </section>
+     <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'rqdt'; 
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
     </div>
   </div>
 </section>
