@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RacQual</title>
+<title>RacQual User Dashboard</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -32,7 +32,7 @@
   <div class="box">
 	 <header>
     <h2>Here are some things you can do:</h2>
-    <a href="edituserservlet" class="button">Edit Your User Info</a>
+    <a href="changeusersetting.jsp" class="button">Edit Your User Info</a>
     <a href="newlisting.jsp" class="button">New Listing</a> 	
     <a href="listings.jsp" class="button">All Listings</a> 
     

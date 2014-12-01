@@ -19,12 +19,13 @@
 </head><body>
 
 <%@ include file="nav.jsp" %>
+ <% Model.Users currentUsers = ((Model.Users) (session.getAttribute("currentSessionUser")));%>
 
         <!-- Main -->
         <section id="main" class="container small">
             <header>
-                <h2>Register for a RacQual Account</h2>
-                <p>Upon registration you will be able to enjoy the many features RacQual has to offer :) </p>
+                <h2>Change your User Account Settings</h2>
+                <p>Below is your current profile settings. To change any value simply edit the field. </p>
             </header>
             <div class="box">
                 <form method="post" action="UserRegistrationServlet">
