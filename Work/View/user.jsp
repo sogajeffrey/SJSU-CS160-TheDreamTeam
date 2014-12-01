@@ -32,45 +32,14 @@
   <div class="box">
 	 <header>
     <h2>Here are some things you can do:</h2>
+    <a href="edituserservlet" class="button">Edit Your User Info</a>
     <a href="newlisting.jsp" class="button">New Listing</a> 	
     <a href="listings.jsp" class="button">All Listings</a> 
     
     </header>	
   </div>
-  <section id="main" class="container small">
-  <header>
-    <h3>All Your Classified Listings</h3>
-  </header>
-</section>
-<section id="main" class="container large">
-  <table id="listings" class="display" cellspacing="3" width="100%">
-    <thead>
-      <tr>
-        <th>Edit Listing </th>
-        <th>Brand</a></th>
-        <th>Model</a></th>
-        <th>Price</a></th>
-        <th>Quality Index</a></th>
-        <th>Mass</a></th>
-        <th>Length</a></th>
-        <th>Swing Weight</a></th>
-        <th>Balance Point</a></th>
-      </tr>
-       </thead>
-       <%for(int i=0; i < racquets.size(); i++)
-    {
-        Racquet rac = new Racquet();
-        rac = (Racquet) racquets.get(i);
-        
-           echo " <tr><td><a href='ViewListingServlet' class='button'>Edit!</a></td>";
-           echo " <td><%= rac.getFirstName() %></td>";
-           echo " <td><%= rac.getLastName() %></td>";
-           echo " <td><%= rac.getEmail() %></td>";
-           echo " <td><%= rac.getPhone() %></td></tr>";
-	}
-	%>
-      </table>
-</section>
+
+
 
 
 <!-- Footer -->
