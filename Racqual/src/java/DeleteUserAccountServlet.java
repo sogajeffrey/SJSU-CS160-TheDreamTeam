@@ -47,6 +47,7 @@ public class DeleteUserAccountServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+    @SuppressWarnings("CallToPrintStackTrace")
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Properties prop = new Properties();
@@ -56,7 +57,7 @@ public class DeleteUserAccountServlet extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             String pass = prop.getProperty("pass");
             String user = prop.getProperty("username");
-            String url = prop.getProperty("url") + "racqual";
+            String url = prop.getProperty("url") ; //+ "racqual";
 
             conn = DriverManager.getConnection(url, user, pass);
 

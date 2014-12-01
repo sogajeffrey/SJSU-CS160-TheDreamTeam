@@ -4,12 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.sql.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -62,34 +56,22 @@ public class ListingCreatorServlet extends HttpServlet {
             double price = Double.parseDouble(request.getParameter("price"));
             String newOrUsed = request.getParameter("newused");
 
-            java.sql.Date dateListed = new java.sql.Date(new Date(System.currentTimeMillis()).getTime());
+//            java.sql.Date dateListed = new java.sql.Date(new Date(System.currentTimeMillis()).getTime());
             // dateSold, usernameBuyer, and sellerRating will be null
-
             String description = request.getParameter("desc");
-            String picture = request.getParameter("upload");
-            
-            System.out.println("User name" + username);
-            System.out.println("Racquet ID " + racquetID);
-            System.out.println("Price " + price);
-            System.out.println("neworused " + newOrUsed);
-            System.out.println("Date Listed " + dateListed);
-            System.out.println("Date Description " + description);
-            System.out.println("Picture " + picture);
-            
-            
+
             int listingID = createListing(username, racquetID, price,
-                    newOrUsed, dateListed, description, picture);
+                    newOrUsed, /*dateListed,*/ description);
+
             if (listingID > 0) // listing was successfully created
             {
                 response.sendRedirect("index.jsp");
             } else // listing was not successfully created
             {
-                System.out.println("LISTING ID NEVER CAME! ");
                 response.sendRedirect("notregistered.jsp");
             }
         } else // for some reason, racquet was not successfully added
         {
-            System.out.println("RACKET ID NEVER CAME! ");
             response.sendRedirect("notregistered.jsp");
         }
     }
@@ -101,15 +83,12 @@ public class ListingCreatorServlet extends HttpServlet {
      * @param racquetID the primary key of the racquet in the table racquetInfo
      * @param price the price
      * @param newOrUsed "new" or "used"
-     * @param dateListed the date of the listing
      * @param description the seller's description of the racquet
-     * @param picture image URL
      *
      * @return the primary key for the newly added row, 0 if unsuccessful
      */
     public int createListing(String username, int racquetID, double price,
-            String newOrUsed, Date dateListed, String description,
-            String picture)
+            String newOrUsed, String description)
             throws ServletException, IOException {
         Properties prop = new Properties();
         prop.load(Thread.currentThread().getContextClassLoader()
@@ -120,52 +99,39 @@ public class ListingCreatorServlet extends HttpServlet {
 
             String sqlPassword = prop.getProperty("pass");
             String sqlUsername = prop.getProperty("username");
-            String sqlURL = prop.getProperty("url") + "racqual";
+            String sqlURL = prop.getProperty("url"); //+ "racqual";
 
             conn = DriverManager.getConnection(sqlURL, sqlUsername, sqlPassword);
-            
-            System.out.println("INSIDE OF CREATE LISTING METHOD BEFORE SQL CALL");
-            
-            String sql = "INSERT INTO listinginfo(username, racquetID, price, "
-                    + "neworUsed, dateListed, dateSold, usernameBuyer, "
-                    + "sellerRating, description, picture)"
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?)";
 
-            PreparedStatement stmt = conn.prepareStatement(sql, new String[]{"listingID"});
+            String sql = "INSERT INTO listinginfo(username, racquetID, price, "
+                    + "neworUsed, description)"
+                    + "VALUES(?,?,?,?,?)";
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setInt(2, racquetID);
             stmt.setDouble(3, price);
             stmt.setString(4, newOrUsed);
-            stmt.setDate(5, dateListed);
-            stmt.setDate(6, null);
-            stmt.setString(7, null);
-            stmt.setString(8, null);
-            stmt.setString(9, description);
-            stmt.setString(10, picture);
-            
-            System.out.println(" Inside of a create listing method! ");
-            
+            stmt.setString(5, description);
+
             int i = stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            
-            
-            System.out.println("I is " + i);
-            System.out.println("User name" + username);
-            System.out.println("Racquet ID " + racquetID);
-            System.out.println("Price " + price);
-            System.out.println("neworused " + newOrUsed);
-            System.out.println("Date Listed " + dateListed);
-            System.out.println("Date Description " + description);
-            System.out.println("Picture " + picture);
-            
+
+            sql = "SELECT listingID FROM listinginfo WHERE racquetID=?";
+
+            stmt = conn.prepareStatement(sql, new String[]{"listingID"});
+            stmt.setInt(1, racquetID);
+
+            ResultSet rs = stmt.executeQuery();
+
             if (rs != null && rs.next()) {
-                System.out.println("Here is the listing ID: " + rs.getInt(1));
-                return rs.getInt(1);
+                final int LISTING_ID = rs.getInt("listingID");
+
+                return LISTING_ID;
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         return 0;
     }
 
@@ -196,7 +162,7 @@ public class ListingCreatorServlet extends HttpServlet {
 
             String sqlPassword = prop.getProperty("pass");
             String sqlUsername = prop.getProperty("username");
-            String sqlURL = prop.getProperty("url") + "racqual";
+            String sqlURL = prop.getProperty("url"); //+ "racqual";
 
             conn = DriverManager.getConnection(sqlURL, sqlUsername, sqlPassword);
 
@@ -228,7 +194,7 @@ public class ListingCreatorServlet extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         return 0;
     }
 
@@ -242,7 +208,7 @@ public class ListingCreatorServlet extends HttpServlet {
      *
      * @return the computed quality index of the racquet
      */
-    private double qualityIndex(double length, double mass, int swingWeight,
+    private double qualityIndex(double mass, double length, int swingWeight,
             double balancePoint) {
         // Q = MR^2/I
         // where M = mass in kilograms,
@@ -250,8 +216,10 @@ public class ListingCreatorServlet extends HttpServlet {
         // and I = swingweight.
         final double M = (mass // ounces
                 / OZ_PER_LB) / LBS_PER_KG;
+
         final double R = ((length / 2) // inches
-                + (balancePoint /* points */ / PTS_PER_IN)) / CM_PER_IN;
+                + (balancePoint /* points */ / PTS_PER_IN)) * CM_PER_IN;
+
         final double I = swingWeight;
 
         // This is the quantitative quality index:

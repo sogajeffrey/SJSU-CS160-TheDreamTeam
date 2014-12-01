@@ -11,16 +11,19 @@ import java.io.IOException;
 import java.util.Properties;
 
 import javax.servlet.http.HttpSession;
+
 /**
- * Servlet to Register Users. 
+ * Servlet to Register Users.
+ *
  * @author Jay Patel
  * @version 11/15/2014
  */
 @WebServlet(name = "UserRegistrationServlet", urlPatterns = {"/UserRegistrationServlet"})
 public class UserRegistrationServlet extends HttpServlet {
-    
+
     private PreparedStatement stmt;
     private Connection conn;
+
     public UserRegistrationServlet() throws IOException {
         Properties prop = new Properties();
         prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("build.properties"));
@@ -28,11 +31,11 @@ public class UserRegistrationServlet extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             String pass = prop.getProperty("pass");
             String user = prop.getProperty("username");
-            String url = prop.getProperty("url") + "racqual";
+            String url = prop.getProperty("url"); //+ "racqual";
             conn = DriverManager.getConnection(url, user, pass);
-            
-            String sql = "INSERT INTO userinfo(username, password, firstName, lastName, email, phoneNumber, city, state, rating)"
-                    + "VALUES(?,?,?,?,?,?,?,?,?)";
+
+            String sql = "INSERT INTO userinfo(username, password, firstName, lastName, email, phoneNumber, city, state)"
+                    + "VALUES(?,?,?,?,?,?,?,?)";
 
             stmt = conn.prepareStatement(sql);
         } catch (Exception ex) {
@@ -42,6 +45,7 @@ public class UserRegistrationServlet extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -59,7 +63,6 @@ public class UserRegistrationServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phone");
         String city = request.getParameter("city");
         String state = request.getParameter("state");
-        final double RATING = 0.0;
 
         try {
             stmt.setString(1, username);
@@ -70,22 +73,25 @@ public class UserRegistrationServlet extends HttpServlet {
             stmt.setString(6, phoneNumber);
             stmt.setString(7, city);
             stmt.setString(8, state);
-            stmt.setDouble(9, RATING);
 
             int i = stmt.executeUpdate();
             stmt.close();
             conn.close();
-            
+
             if (i != 0) {
                 Users user = new Users();
-		user.setUserName(username);
+                user.setUserName(username);
                 user.setPassWord(password);
                 user.setFirstName(firstName);
                 user.setLastName(lastName);
-
+                user.setEmail(email);
+                user.setPhoneNumber(phoneNumber);
+                user.setCity(city);
+                user.setState(state);
+                
                 HttpSession session = request.getSession(true);
-		session.setAttribute("currentSessionUser", user);
-			
+                session.setAttribute("currentSessionUser", user);
+
                 response.sendRedirect("user.jsp");
             } else {
                 response.sendRedirect("notregistered.jsp");

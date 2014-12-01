@@ -44,7 +44,7 @@
           <input name="mass" placeholder="Mass" required="" tabindex="1" type="text">
         </div>
         <div class="3u">
-          <input name="length" placeholder="Weight" required="" tabindex="2" type="text">
+          <input name="length" placeholder="length" required="" tabindex="2" type="text">
         </div>
         <div class="3u">
           <input name="swing" placeholder="Swing Weight" required="" tabindex="2" type="text">

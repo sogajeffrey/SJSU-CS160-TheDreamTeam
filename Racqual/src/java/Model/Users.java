@@ -13,7 +13,7 @@ public class Users implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
-    private long phoneNumber;
+    private String phoneNumber;
     private String city;
     private String state;
     private int rating;
@@ -106,7 +106,7 @@ public class Users implements Serializable {
      * Gets Phone Number of User.
      * @return phone number of User. 
      */
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -114,7 +114,7 @@ public class Users implements Serializable {
      * Sets Phone Number of User.
      * @param phoneNumber phone number of User.
      */
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     
