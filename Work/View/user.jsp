@@ -30,13 +30,20 @@
  
   
   <div class="box">
-	 <header>
+    <header>
     <h2>Here are some things you can do:</h2>
     <a href="changeusersetting.jsp" class="button">Edit Your User Info</a>
     <a href="newlisting.jsp" class="button">New Listing</a> 	
     <a href="listings.jsp" class="button">All Listings</a> 
-    <a href="deleteuserservlet" class="button">DELETE YOUR ACCOUNT</a> 
-
+    
+    <br/>
+    <br/>
+    
+    <form action="DeleteUserAccountServlet" method="post">
+        <input type="submit" name="submit" value="DELETE YOUR ACCOUNT" class="button" id="submit" ></input> 
+    </form>
+    
+    
     
     </header>	
   </div>
