@@ -41,31 +41,35 @@
       </div>
       <div class="row uniform half collapse-at-4">
         <div class="3u">
-          <input name="mass" placeholder="Mass (oz)" required="" tabindex="1" type="text">
+          <input name="mass" placeholder="Mass" required="" tabindex="1" type="text">
         </div>
         <div class="3u">
-          <input name="length" placeholder="Length (Inches)" required="" tabindex="2" type="text">
+          <input name="length" placeholder="length" required="" tabindex="2" type="text">
         </div>
         <div class="3u">
           <input name="swing" placeholder="Swing Weight" required="" tabindex="2" type="text">
         </div>
         <div class="3u">
-          <input name="balance" placeholder="Balance Point (pts from midpoint, -ve for HL)" required="" tabindex="2" type="text">
+          <input name="balance" placeholder="Balance Point" required="" tabindex="2" type="text">
         </div>
       </div>
       <header>
         <h3>Selling Information</h3>
       </header>
-      <div class="row uniform half collapse-at-2">
-        <div class="6u">
+      <div class="row uniform half collapse-at-3">
+        <div class="4u">
           <input type="text" name="price" required="" placeholder="Price">
         </div>
-        <div class="6u">
+        <div class="4u">
           <select name="newused" required>
             <option value="">New or Used</option>
             <option >New</option>
             <option >Used</option>
           </select>
+        </div>
+        <div class="4u">
+        	Upload an Image
+          <input class="buttom" name="upload" tabindex="5" value="image" type="file">
         </div>
       </div>
         <div class="row uniform half">
