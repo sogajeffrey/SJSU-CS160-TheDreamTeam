@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="Model.listings" %>
-<jsp:useBean id="racquets" type="ArrayList<Model.Racquet>" scope="session" />
-<jsp:useBean id="listings" type="ArrayList<Model.Racquet>" scope="session" />
+<%@ page import="Model.Listing" %>
+<%@ page import="Model.Racquet" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -29,6 +28,7 @@ $(document).ready(function() {
 </head><body>
 
 <%@ include file="nav.jsp" %> 
+<% ArrayList racquets = (ArrayList)request.getAttribute("allRacquets");
 
 <!-- Main -->
 <section id="main" class="container small">
@@ -52,27 +52,26 @@ $(document).ready(function() {
         <th>Balance Point</a></th>
       </tr>
        </thead>
-       <%for(int i=0; i < racquets.size(); i++)
+       <% Listing li = new Listing();
+		Racquet rac = new Racquet();
+	   for(int i=0; i < racquets.size(); i++)
     {
-        Racquet rac = new Racquet();
-        rac = (Racquet) racquets.get(i);
         
-           echo " <tr><td><a href='ViewListingServlet' class='button'>View The Listing!</a></td>";
-           echo " <td><%= rac.getFirstName() %></td>";
-           echo " <td><%= rac.getLastName() %></td>";
-           echo " <td><%= rac.getEmail() %></td>";
-           echo " <td><%= rac.getPhone() %></td></tr>";
+        li = (Listing) racquets.get(i);
+		rac = (Racquet) li.getRacquet();
+        
+           echo " <tr><td><a href='individuallistingservlet?listing=li.getListingID()' class='button'>View The Listing!</a></td>";
+           echo " <td> rac.getBrand() </td>";
+           echo " <td> rac.getModel() </td>";
+           echo " <td> li.getPrice() </td>";
+           echo " <td> rac.getQualityIndex() </td>";
+		   echo " <td> rac.getMass() </td>";
+		   echo " <td> rac.getLength() </td>";
+		   echo " <td> rac.getSwingWeight() </td>";
+		   echo " <td> rac.getBalancePoint() </td>";
+		   echo  " </tr>";
 	}
 	%>
-      <tr>
-      	<td><a href="ViewListing"><img src=" " alt="" /></a></td>
-        <td></td>
-        <td></td>
-
-        
-        
-   
-      </table>
 </section>
 
 <!-- Footer -->
