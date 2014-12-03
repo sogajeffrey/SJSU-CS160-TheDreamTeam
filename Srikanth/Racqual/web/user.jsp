@@ -84,7 +84,7 @@
 
                         for (int i = 0; i < usersListings.size(); i++) {
                             nextListing = usersListings.get(i);
-                            nextRacquet = nextListing.getRacket();
+                            nextRacquet = nextListing.getRacquet();
                             dateListed = nextListing.getDateListed();
 
                             String date = String.format("%2d-%2d-%4d",

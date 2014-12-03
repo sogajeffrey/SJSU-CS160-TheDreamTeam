@@ -229,7 +229,9 @@ public class ListingCreatorServlet extends HttpServlet {
         final double I = swingWeight;
 
         // This is the quantitative quality index:
-        final double QUALITY_INDEX = M * R * R / I;
+        final double QUALITY_INDEX = 
+		  Double.parseDouble(String.format("%.3f", M * R * R / I));
+	  
         return QUALITY_INDEX;
     }
 

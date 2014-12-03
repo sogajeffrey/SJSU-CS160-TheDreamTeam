@@ -19,9 +19,9 @@
 </head><body>
 
 <%@ include file="nav.jsp" %> 
-<%@ page import="Model.Listing" %>
+<%@ page import="Model.*" %>
 
-<% Listing in = (Listing)request.getAttribute("listing"); 
+<% Listing in = (Listing) session.getAttribute("listing"); 
    Racquet rac = in.getRacquet();
    Users seller = in.getUsers();
 %>

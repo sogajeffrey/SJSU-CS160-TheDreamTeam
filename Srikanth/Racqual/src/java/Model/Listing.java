@@ -153,18 +153,18 @@ public class Listing implements Serializable{
     }
     
      /**
-     * Set Racket.
-     * @param r the racket. 
+     * Set Racquet.
+     * @param r the racquet. 
      */
-    public void setRacket(Racquet r) {
+    public void setRacquet(Racquet r) {
         this.racquet = r;
     }
     
     /**
-     * Gets the Racket.
-     * @return the racket.
+     * Gets the Racquet.
+     * @return the racquet.
      */
-    public Racquet getRacket() {
+    public Racquet getRacquet() {
         return this.racquet;
     }
 }
