@@ -35,26 +35,33 @@
       
       <article> 
         <header>
-          <h2><% rac.getBrand();%>  <%rac.getModelName(); %></h2>
-          <p>I am selling this racquet for: $ <% in.getPrice(); %></p>
+          <h2><%= rac.getBrand() %>  <%= rac.getModelName() %></h2>
+          <p>I am selling this racquet for $<%= in.getPrice() %></p>
         </header>
         <h3>Racquet Specs</h3>
-        <p>Mass: <% rac.getMass(); %> oz </p>
-        <p>Length: <% rac.getLength(); %> in </p>
-        <p>Swing Weight: <% rac.getSwingWeight(); %> oz </p>
-	    <p>Balance Point: <% rac.getBalancePoint(); %> pts from midpoint, -ve for HL </p>
-        <p>Quality Index: <% rac.getQualityIndex(); %> </p>
+        <p>Mass: <%= rac.getMass() %> oz </p>
+        <p>Length: <%= rac.getLength() %> in </p>
+        <p>Swing Weight: <%= rac.getSwingWeight() %> oz </p>
+	    <p>Balance: <%= 
+		    rac.getBalancePoint() == 0 ? "Even-balanced" :
+		    Math.abs((int) rac.getBalancePoint()) + " pts head-"
+		    + (rac.getBalancePoint() < 0 ? "light" : "heavy")
+	    %></p>
+        <p>Quality Index: <%= rac.getQualityIndex() %> </p>
         <h3>Description</h3>
-        <p> <% in.getDescription(); %></p>
+        <p> <%= in.getDescription() %></p>
       </article>
-      <section id="cta" class="wrapper style3">
+<%-- Fix section starting here --%>
+      <section id="cta" class="wrapper style1">
         <header>
           <h2>Interested in buying?</h2>
-          <p> I'm located in: <% seller.getCity(); %>, <% seller.getState(); %> </p>
-          <p> My Phone Number is: <% seller.getPhoneNumber(); %></p>
-          <a href="mailto:<%seller.getEmail();%>" class="button">Email Me!</a> </header>
+	    <p></p>
+          <p> I'm located in: <%= seller.getCity() %>, <%= seller.getState() %> </p>
+          <p> My Phone Number is: <%= seller.getPhoneNumber() %></p>
+          <a href="mailto:<%= seller.getEmail() %>" class="button" onclick="button">Email Me!</a> </header>
       </section>
-     <div id="disqus_thread"></div>
+<%-- Fix section ending here --%>
+	<div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'rqdt'; 
         (function() {

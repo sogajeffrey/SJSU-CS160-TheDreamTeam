@@ -73,7 +73,7 @@
 		</thead>
 		<%
 		   Racquet rac = new Racquet();
-		   
+
 		   int i;
 		   for (i = 0; i < listings.size(); i++)
 		   {
@@ -81,7 +81,7 @@
 		%>
 		<tr>
 		   <%--  %>' --%>
-		   <td> <a href='individuallistingservlet?listingID=<%= listings.get(i).getListingID() %>' class='button' onclick='button'> View The Listing! </a> </td>
+		   <td> <a href='individuallistingservlet?listingID=<%= listings.get(i).getListingID()%>' class='button' onclick='button'> View The Listing! </a> </td>
 		   <td> <%= rac.getBrand()%> </td>
 		   <td> <%= rac.getModelName()%> </td>
 		   <td> <%= listings.get(i).getPrice()%> </td>
@@ -90,17 +90,17 @@
 		   <td> <%= rac.getLength()%> </td>
 		   <td> <%= rac.getSwingWeight()%> </td>
 		   <td> <%= rac.getBalancePoint()%> </td>
-		</tr>;
+		</tr>
 
 		<%
 		   }
 		%>
+	   </table>
 	</section>
 
 	<!-- Footer -->
 	<footer id="footer">
 	   <ul class="copyright">
-
 		<li>&copy; Dream Team. All rights reserved.</li>
 	   </ul>
 	</footer>
