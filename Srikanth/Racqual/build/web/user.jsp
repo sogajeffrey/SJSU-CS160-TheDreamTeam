@@ -98,9 +98,7 @@
 
 		   <tr>
 			<td> <a href='editlisting.jsp?listingID=<%= nextListing.getListingID() %>' class='button' onclick='button'> Edit The Listing </a> </td>
-			<td> <a href='deletelistingservlet?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Delete The Listing </a> </td>
-			<td> <% /* TODO: Put link for edit page */ %> </td>
-			<td> <% /* TODO: Put link for delete page */%> </td> 
+			<td> <a href='DeleteListingServlet?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Delete The Listing </a> </td>
 			<td> <%= date%> </td>
 			<td> <%= String.format("%.2f", nextListing.getPrice())%> </td>
 			<td> <%= descr%> </td>
