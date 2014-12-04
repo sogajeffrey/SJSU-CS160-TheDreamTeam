@@ -40,13 +40,13 @@
 			<h3>Description</h3>
 			<p> <%= in.getDescription()%></p>
 			<h3>Racquet Specs</h3>
-			<p>Mass: <%= rac.getMass()%> oz </p>
-			<p>Length: <%= rac.getLength()%> in </p>
-			<p>Swing Weight: <%= rac.getSwingWeight()%> </p>
-			<p>Balance: <%=rac.getBalancePoint() == 0 ? "Even-balanced"
+			<p><b>Mass:</b> <%= rac.getMass()%> oz </p>
+			<p><b>Length:</b> <%= rac.getLength()%> in </p>
+			<p><b>Swingweight:</b> <%= rac.getSwingWeight()%> </p>
+			<p><b>Balance:</b> <%=rac.getBalancePoint() == 0 ? "Even-balanced"
 				: Math.abs((int) rac.getBalancePoint()) + " pts head-"
 				+ (rac.getBalancePoint() < 0 ? "light" : "heavy")%></p>
-			<p>Quality Index: <%= rac.getQualityIndex()%> </p>
+			<p><b>Quality Index:</b> <%= rac.getQualityIndex()%> </p>
 		   </article>
 		   <section id="cta" class="wrapper style1">
 			<header>
