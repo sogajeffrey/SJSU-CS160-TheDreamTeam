@@ -67,10 +67,12 @@
             <option >Used</option>
           </select>
         </div>
+	   <%--
         <div class="4u">
         	Upload an Image
           <input class="buttom" name="upload" tabindex="5" value="image" type="file">
         </div>
+	   --%>
       </div>
         <div class="row uniform half">
         <div class="12u">

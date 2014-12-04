@@ -48,9 +48,11 @@
                         <div class="6u">
                             <input type="password" id="password" name="password" placeholder="Password" value="<%= currentUsers.getPassWord() %>">
                         </div>
+				<%--
                         <div class="6u">
                             <input type="password" id="repassword" name="repassword" placeholder="Verify Your Password" value="<%= currentUsers.getPassWord() %>">
                         </div>
+				--%>
                     </div>
                     <div class="row uniform half collapse-at-3">
 
