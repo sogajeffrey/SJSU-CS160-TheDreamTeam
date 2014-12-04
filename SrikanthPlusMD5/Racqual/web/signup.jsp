@@ -27,7 +27,7 @@
 		<p>Upon registration you will be able to enjoy the many features RacQual has to offer :) </p>
 	   </header>
 	   <div class="box">
-		<form method="post" action="UserRegistrationServlet">
+               <form method="post" action="UserRegistrationServlet?newlisting=<%= request.getAttribute("newlisting") %>">
 		   <div class="row uniform half collapse-at-2">
 			<div class="6u">
 			   <input id="name" name="firstname" placeholder="First Name" required="" tabindex="1" type="text" required>

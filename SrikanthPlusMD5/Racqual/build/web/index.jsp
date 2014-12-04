@@ -66,7 +66,7 @@
             <div class="container">
                 <header>
                     <h2>Want to sell a tennis racquet?</h2>
-                    <a href="newlisting.jsp" class="button">Click Here</a> </header>
+                    <a href=<%= session.getAttribute("currentSessionUser") != null ? "newlisting.jsp" : "login.jsp?newlisting=1" %> class="button">Click Here</a> </header>
             </div>
         </section>
 

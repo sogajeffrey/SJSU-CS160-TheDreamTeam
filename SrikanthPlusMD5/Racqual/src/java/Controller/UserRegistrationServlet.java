@@ -121,7 +121,11 @@ public class UserRegistrationServlet extends HttpServlet {
             stmt.close();
             conn.close();
 
-            response.sendRedirect("user.jsp");
+            if (request.getParameter("newlisting") != null) {
+                response.sendRedirect("newlisting.jsp");
+            } else {
+                response.sendRedirect("user.jsp");
+            }
 
         } catch (SQLException ex) {
             response.sendRedirect("notregistered.jsp");
