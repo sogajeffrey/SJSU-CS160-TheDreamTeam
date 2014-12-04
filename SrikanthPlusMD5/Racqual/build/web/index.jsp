@@ -30,8 +30,8 @@
         <section class="wrapper style2">
             <div class="container">
                 <header class="major">
-                    <h2>Lots of new tennis players are often confused about how to pick out a good racquet</h2>
-                    <p>Thats why we provide a one stop shop for all of your tennis needs. Below is what we offer!</p>
+                    <h2>Tennis mortals often don't know how to pick a good racquet.</h2>
+                    <p>That's why we provide a one stop shop for all of your tennis needs. Below is what we offer!</p>
                 </header>
             </div>
         </section>
