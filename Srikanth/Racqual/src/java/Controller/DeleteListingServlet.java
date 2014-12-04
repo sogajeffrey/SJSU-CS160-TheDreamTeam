@@ -18,7 +18,7 @@ import java.util.Properties;
  * @author Srikanth Narahari
  * @version 2014/11/29
  */
-@WebServlet(name = "DeleteListingServlet", urlPatterns = {"/DeleteListing"})
+@WebServlet(name = "DeleteListingServlet", urlPatterns = {"/deletelistingservlet"})
 public class DeleteListingServlet extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

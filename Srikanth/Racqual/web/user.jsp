@@ -67,19 +67,8 @@
 
 			final int MAX_LENGTH_FOR_DESCRIPTION = 20;
 
-			System.out.println("user.jsp: line 68");
-
 			ArrayList<Listing> usersListings
 				= (ArrayList<Listing>) request.getSession().getAttribute("currentSessionUsersListingBeans");
-
-			System.out.println("currentSessionUsersListingBeans is");
-			if (usersListings != null)
-			{
-			   System.out.println("n't");
-			}
-			System.out.println(" null");
-
-			System.out.println("user.jsp: line 73");
 
 			Listing nextListing;
 			Racquet nextRacquet;
@@ -91,11 +80,9 @@
 			   nextRacquet = nextListing.getRacquet();
 			   dateListed = new Date(((java.sql.Date) nextListing.getDateListed()).getTime());
 
-			   javax.swing.JOptionPane.showMessageDialog(null, dateListed.getYear());
-			   
 			   final int MONTH_OFFSET = 1;
 			   final int YEAR_OFFSET = 1900;
-			   
+
 			   String date = String.format("%2d-%2d-%4d",
 				   dateListed.getMonth() + MONTH_OFFSET, dateListed.getDate(),
 				   dateListed.getYear() + YEAR_OFFSET);
@@ -110,6 +97,8 @@
 		   %>
 
 		   <tr>
+			<td> <a href='editlisting.jsp?listingID=<%= nextListing.getListingID() %>' class='button' onclick='button'> Edit The Listing </a> </td>
+			<td> <a href='deletelistingservlet?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Delete The Listing </a> </td>
 			<td> <% /* TODO: Put link for edit page */ %> </td>
 			<td> <% /* TODO: Put link for delete page */%> </td> 
 			<td> <%= date%> </td>
