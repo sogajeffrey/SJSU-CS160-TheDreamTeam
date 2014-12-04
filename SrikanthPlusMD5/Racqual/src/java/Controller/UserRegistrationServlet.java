@@ -84,13 +84,12 @@ public class UserRegistrationServlet extends HttpServlet {
             //This bytes[] has bytes in decimal format;
             //Convert it to hexadecimal format
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
+            for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             //Get complete hashed password in hex format
             String passwordMD5 = sb.toString();
-            
+
             stmt.setString(1, username);
             stmt.setString(2, passwordMD5);
             stmt.setString(3, firstName);
@@ -115,7 +114,7 @@ public class UserRegistrationServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("currentSessionUser", user);
 
-	   // Draw the user's listings into the session data by invoking the
+            // Draw the user's listings into the session data by invoking the
             // servlet that has been made for this purpose.
             new GetUsersListingsBeansServlet().doGet(request, response);
 
@@ -124,20 +123,11 @@ public class UserRegistrationServlet extends HttpServlet {
 
             response.sendRedirect("user.jsp");
 
-        } catch (MySQLIntegrityConstraintViolationException ex) {
-            try {
-                stmt.close();
-                conn.close();
-
-                response.sendRedirect("notregistered.jsp");
-            } catch (SQLException ex2) {
-                ex2.printStackTrace();
-            }
+        } catch (SQLException ex) {
+            response.sendRedirect("notregistered.jsp");
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (NoSuchAlgorithmException ex) {
-            ex.printStackTrace();
-        } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (ServletException ex) {
             ex.printStackTrace();
