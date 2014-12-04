@@ -48,17 +48,17 @@
 		   <tr>
 			<th> </th>  <% /* This column is for edit buttons */ %>
 			<th> </th>  <% /* This column is for delete buttons */ %>
-			<th>Date listed</th>
-			<th>Price</th>
-			<th>Description</th>
-			<th>Brand</th>
-			<th>Model</th>
-			<th>Condition</th> <% /* new or used/old */ %>
-			<th>Mass (oz)</th>
-			<th>Length (in)</th>
-			<th>Swingweight</th>
-			<th>Balance point (pts)</th>
-			<th>Quality index</th>
+			<th><b>Date listed</b></th>
+			<th><b>Price</b></th>
+			<th><b>Description</b></th>
+			<th><b>Brand</b></th>
+			<th><b>Model</b></th>
+			<th><b>Condition</b></th> <% /* new or used/old */ %>
+			<th><b>Mass (oz)</b></th>
+			<th><b>Length (in)</b></th>
+			<th><b>Swingweight</b></th>
+			<th><b>Balance point (pts)</b></th>
+			<th><b>Quality index</b></th>
 		   </tr>
 
 		   <%
@@ -131,9 +131,9 @@
 			   }
 		   %>
 
-		   <tr>
-			<td> <a href='editlisting.jsp?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Edit </a> </td>
-			<td> <a href='DeleteListingServlet?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Delete </a> </td>
+		   <tr align="center">
+			<td> <a href='editlisting.jsp?listingID=<%= nextListing.getListingID()%>' class='text' onclick='button' style="width: 50px; height: 50px"> Edit </a> </td>
+			<td> <a href='DeleteListingServlet?listingID=<%= nextListing.getListingID()%>' class='text' onclick='button'> Delete </a> </td>
 			<td> <%= date%> </td>
 			<td> <%= String.format("%.2f", nextListing.getPrice())%> </td>
 			<td> <%= descr%> </td>

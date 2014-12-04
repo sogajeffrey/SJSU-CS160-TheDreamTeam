@@ -61,14 +61,14 @@
 		<thead>
 		   <tr>
 			<th></th>
-			<th>Brand</a></th>
-			<th>Model</a></th>
-			<th>Price</a></th>
-			<th>Quality Index</a></th>
-			<th>Mass</a></th>
-			<th>Length</a></th>
-			<th>Swing Weight</a></th>
-			<th>Balance Point</a></th>
+			<th><b>Brand</b></a></th>
+			<th><b>Model</b></a></th>
+			<th><b>Price</b></a></th>
+			<th><b>Quality Index</b></a></th>
+			<th><b>Mass</b></a></th>
+			<th><b>Length</b></a></th>
+			<th><b>Swing Weight</b></a></th>
+			<th><b>Balance Point</b></a></th>
 		   </tr>
 		</thead>
 		<%
@@ -79,7 +79,7 @@
 		   {
 			rac = listings.get(i).getRacquet();
 		%>
-		<tr>
+		<tr align="center">
 		   <%--  %>' --%>
 		   <td> <a href='individuallistingservlet?listingID=<%= listings.get(i).getListingID()%>' class='button' onclick='button'>View</a> </td>
 		   <td> <%= rac.getBrand()%> </td>
