@@ -40,8 +40,8 @@ public class EditListingServlet extends HttpServlet
 	   throws ServletException, IOException
    {
 	// Get listing ID *from* *attributes*.
-	final int LISTING_ID = Integer.parseInt((String) request.getAttribute("listingID"));
-
+	final int LISTING_ID = Integer.parseInt((String) request.getParameter("listingID"));
+	
 	//Get other parameters from the form.
 	HttpSession session = request.getSession(true);
 //        Users currentUsers = (Users) session.getAttribute("currentSessionUser");
@@ -64,10 +64,9 @@ public class EditListingServlet extends HttpServlet
 
 	// no time to implement dateSold, usernameBuyer, and sellerRating
 	String description = request.getParameter("desc");
-	String picture = request.getParameter("upload");
 
 	updateListing(LISTING_ID, model, brand, mass, length, swingWeight,
-		balancePoint, qualityIndex, price, newOrUsed, description, picture);
+		balancePoint, qualityIndex, price, newOrUsed, description);
 
 	// Update the user's listings in the session data by invoking the
 	// servlet that has been made for this purpose.
@@ -91,13 +90,12 @@ public class EditListingServlet extends HttpServlet
     * @param price the price
     * @param newOrUsed "new" or "used"
     * @param description the seller's description of the racquet
-    * @param picture image URL
     */
    @SuppressWarnings("CallToPrintStackTrace")
    public void updateListing(int listingID, String mName, String brand,
 	   double mass, double length, int swingWeight, double balancePoint,
 	   double qualityIndex, double price, String newOrUsed,
-	   String description, String picture)
+	   String description)
 	   throws ServletException, IOException
    {
 	Properties prop = new Properties();
@@ -110,40 +108,34 @@ public class EditListingServlet extends HttpServlet
 
 	   String sqlPassword = prop.getProperty("pass");
 	   String sqlUsername = prop.getProperty("username");
-	   String sqlURL = prop.getProperty("url") + "racqual";
+	   String sqlURL = prop.getProperty("url");
 
 	   conn = DriverManager.getConnection(sqlURL, sqlUsername, sqlPassword);
 
-	   String sql = "UPDATE listinginfo"
-		   + "SET price=?,neworUsed=?,description=?,picture=?"
-		   + "WHERE listingID=?";
+	   String sql = "UPDATE listinginfo SET price = ?, neworUsed = ?, description = ? WHERE listingID = ?";
 
-	   PreparedStatement stmt = conn.prepareStatement(sql, new String[]
-	   {
-		"racquetID"
-	   });
+	   PreparedStatement stmt = conn.prepareStatement(sql);
 	   stmt.setDouble(1, price);
 	   stmt.setString(2, newOrUsed);
 	   stmt.setString(3, description);
-	   stmt.setString(4, picture);
-	   stmt.setInt(5, listingID);
+	   stmt.setInt(4, listingID);
 
-	   stmt.executeUpdate(sql);
+	   stmt.executeUpdate();
 
-	   ResultSet set = stmt.getGeneratedKeys();
+	   sql = "SELECT racquetID FROM listinginfo WHERE listingID=?";
 
-	   PreparedStatement origStmt = stmt;
-
+	   stmt = conn.prepareStatement(sql, new String[] { "racquetID" });
+	   stmt.setInt(1, listingID);
+	   
+	   ResultSet set = stmt.executeQuery();
 	   set.next();
+
 	   final int RACQUET_ID = set.getInt("racquetID");
 
 	   updateRacquet(conn, RACQUET_ID, mName, brand, mass,
 		   length, swingWeight, balancePoint,
 		   qualityIndex);
 
-	   origStmt.close();
-
-	   stmt.close();
 	   conn.close();
 	} catch (ClassNotFoundException ex)
 	{
@@ -181,13 +173,12 @@ public class EditListingServlet extends HttpServlet
 	   double qualityIndex)
 	   throws ServletException, IOException
    {
-	javax.swing.JOptionPane.showMessageDialog(null, mass);
 	try
 	{
 	   String sql = "UPDATE racquetinfo"
-		   + "SET modelName=?,brand=?,mass=?,length=?,swingweight=?,"
+		   + " SET modelName=?,brand=?,mass=?,length=?,swingweight=?,"
 		   + "balancePoint=?,qualityIndex=?"
-		   + "WHERE racquetID=?";
+		   + " WHERE racquetID=?";
 
 	   PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -217,22 +208,26 @@ public class EditListingServlet extends HttpServlet
     *
     * @return the computed quality index of the racquet
     */
-   private double qualityIndex(double length, double mass, int swingWeight,
+   private double qualityIndex(double mass, double length, int swingWeight,
 	   double balancePoint)
    {
-	// Q = MR^2/I
-	// where M = mass in kilograms,
-	// r = cms from balance point to butt cap,
-	// and I = swingweight.
-	final double M = (mass // ounces
-		/ OZ_PER_LB) / LBS_PER_KG;
-	final double R = ((length / 2) // inches
-		+ (balancePoint /* points */ / PTS_PER_IN)) / CM_PER_IN;
-	final double I = swingWeight;
+        // Q = MR^2/I
+        // where M = mass in kilograms,
+        // r = cms from balance point to butt cap,
+        // and I = swingweight.
+        final double M = (mass // ounces
+                / OZ_PER_LB) / LBS_PER_KG;
 
-	// This is the quantitative quality index:
-	final double QUALITY_INDEX = M * R * R / I;
-	return QUALITY_INDEX;
+        final double R = ((length / 2) // inches
+                + (balancePoint /* points */ / PTS_PER_IN)) * CM_PER_IN;
+
+        final double I = swingWeight;
+
+        // This is the quantitative quality index:
+        final double QUALITY_INDEX = 
+		  Double.parseDouble(String.format("%.3f", M * R * R / I));
+	  
+        return QUALITY_INDEX;
    }
 
    private static final double OZ_PER_LB = 16.0;

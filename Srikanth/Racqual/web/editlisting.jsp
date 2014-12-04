@@ -47,6 +47,7 @@
 	   </header>
 	   <div class="box">
 		<form method="post" action="EditListingServlet">
+		   <input name="listingID" type="hidden" value="<%= LISTING_ID %>" >
 		   <header>
 			<h3>Racquet Information</h3>
 		   </header>
