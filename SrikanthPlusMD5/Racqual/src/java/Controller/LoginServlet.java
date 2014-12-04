@@ -91,7 +91,7 @@ public class LoginServlet extends HttpServlet {
                 // servlet that has been made for this purpose.
                 new GetUsersListingsBeansServlet().updateListingBeansInSessions(request, response, session);
                 
-                if (request.getParameter("newlisting") != null)
+                if (Integer.parseInt(request.getParameter("newlisting")) == 1)
                 {
                     response.sendRedirect("newlisting.jsp");
                 }

@@ -6,4 +6,4 @@
 --%>
 
 <% session.invalidate(); %>
-<% response.sendRedirect("login.jsp"); %>
+<% response.sendRedirect("login.jsp?newlisting=0"); %>

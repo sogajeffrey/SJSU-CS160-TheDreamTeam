@@ -12,8 +12,8 @@
             <li ><a href="listings.jsp">Classified Listings</a></li>
             <li ><a href="discuss.jsp">General Discussion</a></li>
                 <% if (null == session.getAttribute("currentSessionUser")) { %>
-            <li><a href="login.jsp">Login</a></li>
-            <li> <a href="signup.jsp">Sign up</a> </li>
+            <li><a href="login.jsp?newlisting=0">Login</a></li>
+            <li> <a href="signup.jsp?newlisting=0">Sign up</a> </li>
                 <% } else { %>
             <li><a href="newlisting.jsp">New Listing</a></li>
             <li><a href="user.jsp">Your Account</a></li>

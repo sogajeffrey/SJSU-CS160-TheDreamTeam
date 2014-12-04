@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Users;
 
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -121,7 +120,7 @@ public class UserRegistrationServlet extends HttpServlet {
             stmt.close();
             conn.close();
 
-            if (request.getParameter("newlisting") != null) {
+            if (Integer.parseInt(request.getParameter("newlisting")) == 1) {
                 response.sendRedirect("newlisting.jsp");
             } else {
                 response.sendRedirect("user.jsp");
