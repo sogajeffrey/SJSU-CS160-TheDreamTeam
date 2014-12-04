@@ -27,7 +27,7 @@
 	<%@ page import="java.util.Date" %>
 	<%@ page import="java.util.ArrayList" %>
 	<% Model.Users currentUsers = ((Model.Users) (session.getAttribute("currentSessionUser")));%>
-	<h2>Welcome to RacQual! <%= currentUsers.getFirstName() + " " + currentUsers.getLastName()%> 
+	<h2>Welcome to RacQual <%= currentUsers.getFirstName() + " " + currentUsers.getLastName()%>!
 
 	</h2>
 
