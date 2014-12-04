@@ -10,14 +10,6 @@
     }
 }
 
-@mixin vendor-keyframes($name) {
-	@-moz-keyframes #{$name} { @content; }
-	@-webkit-keyframes #{$name} { @content; }
-	@-o-keyframes #{$name} { @content; }
-	@-ms-keyframes #{$name} { @content; }
-	@keyframes #{$name} { @content; }
-}
-
 @mixin icon($content: false) {
 	text-decoration: none;
 

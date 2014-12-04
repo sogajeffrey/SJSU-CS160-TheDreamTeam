@@ -33,7 +33,7 @@
       </header>
       <div class="row uniform half collapse-at-2">
         <div class="6u">
-          <input name="brand" placeholder="Racqet Brand" required="" tabindex="1" type="text">
+          <input name="brand" placeholder="Racquet Brand" required="" tabindex="1" type="text">
         </div>
         <div class="6u">
           <input name="model" placeholder="Racquet Model" required="" tabindex="2" type="text">
@@ -41,16 +41,16 @@
       </div>
       <div class="row uniform half collapse-at-4">
         <div class="3u">
-          <input name="mass" placeholder="Mass" required="" tabindex="1" type="text">
+          <input name="mass" placeholder="Mass (oz)" required="" tabindex="1" type="text">
         </div>
         <div class="3u">
-          <input name="length" placeholder="length" required="" tabindex="2" type="text">
+          <input name="length" placeholder="length (in)" required="" tabindex="2" type="text">
         </div>
         <div class="3u">
           <input name="swing" placeholder="Swing Weight" required="" tabindex="2" type="text">
         </div>
         <div class="3u">
-          <input name="balance" placeholder="Balance Point" required="" tabindex="2" type="text">
+          <input name="balance" placeholder="Balance (Pts from midpoint, -ve for HL)" required="" tabindex="2" type="text">
         </div>
       </div>
       <header>
