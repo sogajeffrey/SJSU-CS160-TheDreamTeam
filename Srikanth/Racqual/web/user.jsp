@@ -48,7 +48,7 @@
 		   <tr>
 			<th> </th>  <% /* This column is for edit buttons */ %>
 			<th> </th>  <% /* This column is for delete buttons */ %>
-			<th>Date listed (mm-dd-yyyy)</th>
+			<th>Date listed</th>
 			<th>Price</th>
 			<th>Description</th>
 			<th>Brand</th>
@@ -62,9 +62,6 @@
 		   </tr>
 
 		   <%
-
-
-
 			final int MAX_LENGTH_FOR_DESCRIPTION = 20;
 
 			ArrayList<Listing> usersListings
@@ -80,11 +77,49 @@
 			   nextRacquet = nextListing.getRacquet();
 			   dateListed = new Date(((java.sql.Date) nextListing.getDateListed()).getTime());
 
-			   final int MONTH_OFFSET = 1;
-			   final int YEAR_OFFSET = 1900;
+			   String month;
+			   switch (dateListed.getMonth())
+			   {
+				case 0:
+				   month = "JAN";
+				   break;
+				case 1:
+				   month = "FEB";
+				   break;
+				case 2:
+				   month = "MAR";
+				   break;
+				case 3:
+				   month = "APR";
+				   break;
+				case 4:
+				   month = "MAY";
+				   break;
+				case 5:
+				   month = "JUN";
+				   break;
+				case 6:
+				   month = "JUL";
+				   break;
+				case 7:
+				   month = "AUG";
+				   break;
+				case 8:
+				   month = "SEP";
+				   break;
+				case 9:
+				   month = "OCT";
+				   break;
+				case 10:
+				   month = "NOV";
+				   break;
+				default:
+				   month = "DEC";
+			   }
 
-			   String date = String.format("%2d-%2d-%4d",
-				   dateListed.getMonth() + MONTH_OFFSET, dateListed.getDate(),
+			   final int YEAR_OFFSET = 1900;
+			   String date = String.format("%s %2d, %4d",
+				   month, dateListed.getDate(),
 				   dateListed.getYear() + YEAR_OFFSET);
 
 			   String descr = nextListing.getDescription();
@@ -97,8 +132,8 @@
 		   %>
 
 		   <tr>
-			<td> <a href='editlisting.jsp?listingID=<%= nextListing.getListingID() %>' class='button' onclick='button'> Edit The Listing </a> </td>
-			<td> <a href='DeleteListingServlet?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Delete The Listing </a> </td>
+			<td> <a href='editlisting.jsp?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Edit </a> </td>
+			<td> <a href='DeleteListingServlet?listingID=<%= nextListing.getListingID()%>' class='button' onclick='button'> Delete </a> </td>
 			<td> <%= date%> </td>
 			<td> <%= String.format("%.2f", nextListing.getPrice())%> </td>
 			<td> <%= descr%> </td>

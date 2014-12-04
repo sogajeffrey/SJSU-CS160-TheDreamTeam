@@ -60,7 +60,7 @@
 		    ="display" cellspacing="3" width="100%">
 		<thead>
 		   <tr>
-			<th>View Listing </th>
+			<th></th>
 			<th>Brand</a></th>
 			<th>Model</a></th>
 			<th>Price</a></th>
@@ -81,7 +81,7 @@
 		%>
 		<tr>
 		   <%--  %>' --%>
-		   <td> <a href='individuallistingservlet?listingID=<%= listings.get(i).getListingID()%>' class='button' onclick='button'> View The Listing! </a> </td>
+		   <td> <a href='individuallistingservlet?listingID=<%= listings.get(i).getListingID()%>' class='button' onclick='button'>View</a> </td>
 		   <td> <%= rac.getBrand()%> </td>
 		   <td> <%= rac.getModelName()%> </td>
 		   <td> <%= listings.get(i).getPrice()%> </td>

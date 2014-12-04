@@ -41,7 +41,7 @@
         <h3>Racquet Specs</h3>
         <p>Mass: <%= rac.getMass() %> oz </p>
         <p>Length: <%= rac.getLength() %> in </p>
-        <p>Swing Weight: <%= rac.getSwingWeight() %> oz </p>
+        <p>Swing Weight: <%= rac.getSwingWeight() %> </p>
 	    <p>Balance: <%= 
 		    rac.getBalancePoint() == 0 ? "Even-balanced" :
 		    Math.abs((int) rac.getBalancePoint()) + " pts head-"
