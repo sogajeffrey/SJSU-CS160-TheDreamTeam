@@ -91,7 +91,6 @@ public class LoginServlet extends HttpServlet {
                 // servlet that has been made for this purpose.
                 new GetUsersListingsBeansServlet().updateListingBeansInSessions(request, response, session);
                 
-                javax.swing.JOptionPane.showMessageDialog(null, request.getParameter("newlisting"));
                 if (request.getParameter("newlisting") != null)
                 {
                     response.sendRedirect("newlisting.jsp");
