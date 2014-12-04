@@ -48,32 +48,40 @@
                         <div class="6u">
                             <input type="password" id="password" name="password" placeholder="Password" value="<%= currentUsers.getPassWord() %>">
                         </div>
-				<%--
-                        <div class="6u">
-                            <input type="password" id="repassword" name="repassword" placeholder="Verify Your Password" value="<%= currentUsers.getPassWord() %>">
-                        </div>
-				--%>
-                    </div>
-                    <div class="row uniform half collapse-at-3">
+			<%--
+			 <div class="6u">
+			     <input type="password" id="repassword" name="repassword" required="" placeholder="Verify Your Password" required>
+			 </div>
+			--%>
+			<div class="6u">
+			   <input id="phone" name="phone" placeholder="Phone Number" required type="text">
+			</div>
 
+		   </div>
+		   <div class="row uniform half collapse-at-2">
 
-                        <div class="row uniform half collapse-at-3">
-                            <div class="4u">
-                                <input id="phone" name="phone" placeholder="Phone Number" type="text" value="<%= currentUsers.getPhoneNumber() %>">
-                            </div>
-                            <div class ="4u">
-                                <input type="text" name="city" placeholder="City" value="<%= currentUsers.getCity() %>">
-                            </div>
-                            <div class ="4u">
-                                <input type="text" name="state" placeholder="State" value="<%= currentUsers.getState() %>">
-                            </div>
-                        </div>
-                        <div class="row uniform">
-                            <div class="12u">
-                                <input class="buttom" name="submit" id="submit" tabindex="5" value="Submit" type="submit">
-                            </div>
-                        </div>
-                </form>
+			<%--
+			<div class="row uniform half collapse-at-2">
+			   <%--
+			   <div class="4u">
+				  <input id="phone" name="phone" placeholder="Phone Number" required type="text">
+			    </div>
+			   --%>
+			   <div class ="6u">
+				<input type="text" name="city" placeholder="City" required>
+			   </div>
+			   <div class ="6u">
+				<input type="text" name="state" placeholder="State" required>
+			   </div>
+			</div>
+			<div class="row uniform">
+			   <div class="12u">
+				<ul class="actions align-center">
+				   <input class="button" name="submit" id="submit" tabindex="5" value="Submit" type="submit">
+				</ul>
+			   </div>
+			</div>
+		</form>
             </div>
         </section>
 
