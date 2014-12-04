@@ -54,7 +54,12 @@
 			   <p></p>
 			   <p> Seller's location: <%= seller.getCity()%>, <%= seller.getState()%> </p>
 			   <p> Phone Number: <%= seller.getPhoneNumber()%></p>
-			   <a href="mailto:<%= seller.getEmail()%>" class="button" onclick="button">Email</a> </header>
+			   <p> Email: <%= seller.getEmail()%></p>
+
+			   <%--
+				   <a href="mailto:<%= seller.getEmail()%>" class="button">Email</a>
+			   --%>
+			</header>
 		   </section>
 		   <%--
 		   <div id="disqus_thread"></div>
