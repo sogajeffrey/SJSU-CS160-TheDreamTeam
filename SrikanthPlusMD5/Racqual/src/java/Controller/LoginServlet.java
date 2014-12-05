@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("user.jsp");
                 }
             } else {
-                response.sendRedirect("notregistered.jsp");
+                response.sendRedirect("loginfailed.jsp");
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
