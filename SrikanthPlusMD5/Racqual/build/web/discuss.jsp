@@ -31,7 +31,7 @@
                 <div id="content"> 
                     <section id="main" class="container small">
                         <header>
-                            <h3>Join the conversation with other tennis enthusiasts!</h3>
+                            <h2>Join the conversation with other tennis enthusiasts!</h2>
                         </header>
                     </section>
                     <div id="disqus_thread"></div>
