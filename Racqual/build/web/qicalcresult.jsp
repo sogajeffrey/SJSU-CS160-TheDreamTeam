@@ -1,5 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- 
+    Organization : The Dream Team
+    Version      : Dec 5, 2014
+--%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,7 +32,7 @@
   <% String g = (String)request.getAttribute("grade");
      if(g.equals("Good")) {
       out.println("<span class='image'><img src='images/Good.jpg' alt='Good' width='150' height='150' /></span>");
-     } else if(g.equals("Mediocre")) {
+     } else if(g.equals("MEDIOCRE")) {
         out.println("<span class='image'><img src='images/mediocre.jpg' alt='Mediocre' width='150' height='150' /></span>");
     } else {
         out.println("<span class='image'><img src='images/bad.jpg' alt='Bad' width='150' height='150' /></span>");

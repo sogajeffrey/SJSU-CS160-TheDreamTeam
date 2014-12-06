@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-- 
-    Document   : registered
-    Created on : Nov 10, 2014, 10:25:17 PM
-    Author     : Bob
+    Organization : The Dream Team
+    Version      : Dec 5, 2014
 --%>
 
 <!DOCTYPE HTML>
@@ -28,7 +27,8 @@
 
 	<section id="main" class="container small">
   <header>
-    <h2>You were not registered, please go back and try again</h2>
+     <h2>That username is not available.</h2>
+     <h2>Please go back and try something else.</h2>
   </header>
   </section>
    
