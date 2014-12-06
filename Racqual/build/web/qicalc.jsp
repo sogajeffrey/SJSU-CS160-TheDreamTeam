@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-- 
     Organization : The Dream Team
-    Version      : Dec 5, 2014
+    Version      : Dec 6, 2014
 --%>
 
 <!DOCTYPE HTML>
@@ -54,7 +54,7 @@
 				   <label for="swing" style="font-weight:normal">Swingweight</label>
 				</div>
 				<div>
-				   <input name="swing" value='325' class="3u" min='1'
+				   <input name="swing" value='325' class="4u" min='1'
 					    required="" tabindex="2" type="number">
 				</div>
 			   </div>
