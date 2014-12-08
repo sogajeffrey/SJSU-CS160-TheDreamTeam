@@ -51,7 +51,7 @@
                         </div>
                     </section>
                     <section class="4u">
-                        <div class="box highlight"><a href="newlisting.jsp"> <i class="icon major fa-edit"></a></i>
+                        <div class="box highlight"><a href="<%= session.getAttribute("currentSessionUser") != null ? "newlisting.jsp" : "login.jsp?newlisting=1"%>"> <i class="icon major fa-edit"></a></i>
                             <h3>Sell Your Used or New Racquets</h3>
                             <p>We provide a place where you can sell your racquet to other new tennis players.</p>
                         </div>

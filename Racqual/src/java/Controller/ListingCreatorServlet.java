@@ -37,48 +37,56 @@ public class ListingCreatorServlet extends HttpServlet {
         //Get Parameters from the form.
         HttpSession session = request.getSession(true);
         Users currentUsers = (Users) session.getAttribute("currentSessionUser");
-        String username = currentUsers.getUserName();
-        String model = request.getParameter("model");
-        String brand = request.getParameter("brand");
+        
+        System.out.println("Current Users is set to --> " + currentUsers);
+        if(currentUsers == null) {
+            System.out.println("Gets in if condition.....");
+            
+            response.sendRedirect("login.jsp");
+        } else {
+            String username = currentUsers.getUserName();
+            String model = request.getParameter("model");
+            String brand = request.getParameter("brand");
 
-        double mass = Double.parseDouble(request.getParameter("mass"));
-        double length = Double.parseDouble(request.getParameter("length"));
-        int swingWeight = Integer.parseInt(request.getParameter("swing"));
-        double balancePoint = Double.parseDouble(
-                request.getParameter("balance"));
+            double mass = Double.parseDouble(request.getParameter("mass"));
+            double length = Double.parseDouble(request.getParameter("length"));
+            int swingWeight = Integer.parseInt(request.getParameter("swing"));
+            double balancePoint = Double.parseDouble(
+                    request.getParameter("balance"));
 
-        double qualityIndex = qualityIndex(mass, length, swingWeight,
-                balancePoint);
+            double qualityIndex = qualityIndex(mass, length, swingWeight,
+                    balancePoint);
 
-        int racquetID = addRacquet(model, brand, mass, length, swingWeight,
-                balancePoint, qualityIndex);
+            int racquetID = addRacquet(model, brand, mass, length, swingWeight,
+                    balancePoint, qualityIndex);
 
-        if (racquetID > 0) // i.e. if racquet was successfully added to DB
-        {
-            double price = Double.parseDouble(request.getParameter("price"));
-            String newOrUsed = request.getParameter("newused");
-
-//            java.sql.Date dateListed = new java.sql.Date(new Date(System.currentTimeMillis()).getTime());
-            // dateSold, usernameBuyer, and sellerRating will be null
-            String description = request.getParameter("desc");
-
-            int listingID = createListing(username, racquetID, price,
-                    newOrUsed, /*dateListed,*/ description);
-
-            if (listingID > 0) // listing was successfully created
+            if (racquetID > 0) // i.e. if racquet was successfully added to DB
             {
-                // Update the user's listings in the session data by invoking the
-                // servlet that has been made for this purpose.
-                new GetUsersListingsBeansServlet().doGet(request, response);
+                double price = Double.parseDouble(request.getParameter("price"));
+                String newOrUsed = request.getParameter("newused");
 
-                response.sendRedirect("user.jsp");
-            } else // listing was not successfully created
+    //            java.sql.Date dateListed = new java.sql.Date(new Date(System.currentTimeMillis()).getTime());
+                // dateSold, usernameBuyer, and sellerRating will be null
+                String description = request.getParameter("desc");
+
+                int listingID = createListing(username, racquetID, price,
+                        newOrUsed, /*dateListed,*/ description);
+
+                if (listingID > 0) // listing was successfully created
+                {
+                    // Update the user's listings in the session data by invoking the
+                    // servlet that has been made for this purpose.
+                    new GetUsersListingsBeansServlet().doGet(request, response);
+
+                    response.sendRedirect("user.jsp");
+                } else // listing was not successfully created
+                {
+                    response.sendRedirect("notregistered.jsp");
+                }
+            } else // for some reason, racquet was not successfully added
             {
                 response.sendRedirect("notregistered.jsp");
-            }
-        } else // for some reason, racquet was not successfully added
-        {
-            response.sendRedirect("notregistered.jsp");
+            } 
         }
     }
 

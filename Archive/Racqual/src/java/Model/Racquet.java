@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 
 /**
- * Racquet JavaBean to map our RacquetInfo Database. 
- * @author Jay Patel
+ * This JavaBean is used to represent a tennis racquet in the session data.
+ *
+ * @author The Dream Team
+ * @version 2014/12/5
  */
 public class Racquet implements Serializable {
     

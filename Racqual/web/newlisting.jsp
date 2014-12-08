@@ -87,9 +87,7 @@
       <div class="row uniform half collapse-at-2">
       <div class="row uniform">
         <div class="12u">
-          <ul class="actions align-center">
-            <input class="buttom" name="submit" id="submit" tabindex="5" value="Submit" type="submit">
-          </ul>
+            <input type="submit" class="actions align-center,button" name="submit" id="submit" tabindex="5" value="Submit"  />
         </div>
       </div>
     </form>

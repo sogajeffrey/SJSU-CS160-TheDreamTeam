@@ -3,20 +3,21 @@ package Model;
 import java.io.Serializable;
 
 /**
- * User JavaBean to map our UserInfo Database. 
- * @author Jay Patel
+ * This JavaBean is used to represent a user account in the session data.
+ *
+ * @author The Dream Team
+ * @version 2014/12/5
  */
 public class Users implements Serializable {
     
     private String userName;
-    private String passWord;
+    private String passwordMD5;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private String city;
     private String state;
-    private int rating;
     
     //Racquet Default constrctor. 
     public Users() {
@@ -39,19 +40,19 @@ public class Users implements Serializable {
     }
     
     /**
-     * Gets a Password of User. 
-     * @return password of User. 
+     * Gets the md5 hash of the User's password. 
+     * @return the md5 hash
      */
-    public String getPassWord() {
-        return passWord;
+    public String getPasswordMD5() {
+        return passwordMD5;
     }
     
     /**
-     * Sets a Password of User. 
-     * @param passWord password of User.
+     * Sets the md5 hash of the User's password.
+     * @param passwordMD5 the md5 hash
      */
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPasswordMD5(String passwordMD5) {
+        this.passwordMD5 = passwordMD5;
     }
     
     /**
@@ -149,20 +150,4 @@ public class Users implements Serializable {
     public void setState(String state) {
         this.state = state;
     }
-    
-    /**
-     * Gets the Rating of the User. 
-     * @return ratings of User.
-     */
-    public int getRating() {
-        return rating;
-    }
-    
-    /**
-     * Sets Rating of the User. 
-     * @param rating User Ratings. 
-     */
-    public void setRating(int rating) {
-        this.rating = rating;
-    } 
 }

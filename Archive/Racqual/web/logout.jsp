@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-- 
-    Document   : logout.jsp
-    Created on : Nov 19, 2014, 2:22:12 PM
-    Author     : Jay Patel
+    Organization : The Dream Team
+    Version      : Dec 6, 2014
 --%>
 
 <% session.invalidate(); %>
-<% response.sendRedirect("index.jsp"); %>
+<% response.sendRedirect("login.jsp?newlisting=0"); %>
